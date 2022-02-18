@@ -12,6 +12,7 @@ For ICSI 499 Capstone. Sponsored by Mariya Zheleva and the UbiNET Laboratory.
 
 
 ## Installation
-
+Run "npm install" in Terminal.
 
 ## Running
+Run "npm start in Terminal.
