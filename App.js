@@ -1,34 +1,22 @@
 import React from 'react';
 import {Text, View, StyleSheet, Button} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-function Homescreen(props) { 
-  console.log(props);
-  return (
-    //EApp Homescreen
-    <View style={styles.screen}>
-      <Button title="Advisory"/>
-      <Button title="Alerts"/>
-      <Button title="Be Ready"/>
-    </View>
-  )
-}
+import { AdvisoryScreen } from './screens/Advisory'; 
+import { AlertScreen } from './screens/Alert'; 
+import { BeReadyScreen } from './screens/BeReady'
 
-const Stack = createStackNavigator(); 
-
-function MyStack() { 
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={Homescreen} />
-    </Stack.Navigator>
-  )
-}
+const Tab = createBottomTabNavigator()
 
 export default function App() { 
   return (
     <NavigationContainer>
-      <MyStack />
+      <Tab.Navigator>
+        <Tab.Screen name="Advisory" component={AdvisoryScreen} />
+        <Tab.Screen name="Alert" component={AlertScreen} />
+        <Tab.Screen name="Be Ready" component={BeReadyScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   )
 }
