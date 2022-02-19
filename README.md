@@ -11,6 +11,8 @@ For ICSI 499 Capstone. Sponsored by Mariya Zheleva and the UbiNET Laboratory.
 
 
 ## Installation
+npm install
+npm start and choose iOS simulator to run the application
 
 
 ## Running
