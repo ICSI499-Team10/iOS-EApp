@@ -1,12 +1,11 @@
 import React from 'react'; 
-import { Text, View, StyleSheet } from 'react-native'; 
+import {StyleSheet} from 'react-native'; 
+import StackNavigator from '../navigators/stackNav'; 
 
 const AccountScreen = props => { 
-    return (
-        <View style={styles.screen}>
-            <Text>Account Screen</Text>
-        </View>   
-    )
+  return (
+    <StackNavigator />
+  )
 }
 
 const styles = StyleSheet.create({
