@@ -1,7 +1,8 @@
 import React from 'react';
-import {Text, View, StyleSheet, Button} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import {StyleSheet} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
 import BottomTabNavigator from './navigators/bottomTabNav'; 
+
 
 export default function App() { 
   return (
