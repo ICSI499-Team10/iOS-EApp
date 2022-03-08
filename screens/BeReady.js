@@ -1,12 +1,10 @@
-
 import React from 'react'; 
-import { Text, View, StyleSheet } from 'react-native'; 
+import { Text, View, StyleSheet } from 'react-native';
+import StackNavigator from '../navigators/stackBeReadyNav';
 
 const BeReadyScreen = props => { 
     return (
-        <View style={styles.screen}>
-            <Text>Be Ready Screen</Text>
-        </View>   
+        <StackNavigator />
     )
 }
 
