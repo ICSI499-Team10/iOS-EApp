@@ -1,16 +1,16 @@
-import { NavigationContainer } from '@react-navigation/native';
 import React from 'react'; 
 import { Text, View, StyleSheet, TextInput, Button} from 'react-native'; 
 import { Alert } from 'react-native-web';
 
-const LogInScreen = props => { 
+const LogInScreen = ({navigation}) => { 
     return (
         <View style={styles.screen}>
             <Text>Log In</Text>
             <TextInput placeholder='Email'/>
             <TextInput placeholder='Password' secureTextEntry = {true}/>
             <Button 
-              title = "Login" 
+              title = "Login"
+              onPress={() => navigation.navigate("Bottom Tab")} 
               />
         </View>   
     )

@@ -8,7 +8,7 @@ import {AccountScreen} from '../screens/Account';
 
 const Tab = createBottomTabNavigator(); 
 
-const bottomTabNavigator = () => { 
+const BottomTabNavigator = () => { 
     return(
         <Tab.Navigator>
             <Tab.Screen name="Advisory" component={AdvisoryScreen} />
@@ -19,4 +19,4 @@ const bottomTabNavigator = () => {
     )
 }
 
-export default bottomTabNavigator; 
+export default BottomTabNavigator; 
