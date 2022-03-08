@@ -15,7 +15,7 @@ const LoginNavigator = () =>{
     return(
         <Stack.Navigator>
             <Stack.Screen name="Log In" component={LogInScreen} />
-            <Stack.Screen name ="Bottom Tab" component={BottomTabNavigator}/>
+            <Stack.Screen name ="Bottom Tab" component={BottomTabNavigator} options={{headerShown: false}}/>
         </Stack.Navigator>
     )
 }
