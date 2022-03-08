@@ -1,11 +1,11 @@
-
 import React from 'react'; 
 import { Text, View, StyleSheet, Button} from 'react-native'; 
 
-const ContactScreen = props => { 
+const AdvisoryWeatherScreen = props => { 
+  console.log(props)
     return (
         <View style={styles.screen}>
-            <Text>Contact Us Screen</Text>
+            <Text>Advisory: Weather Screen</Text>
             <Button title="Go Back" onPress={() => props.navigation.goBack()}/>
         </View>   
     )
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export {ContactScreen}
+export {AdvisoryWeatherScreen}

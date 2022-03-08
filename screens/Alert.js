@@ -1,12 +1,10 @@
-
 import React from 'react'; 
 import { Text, View, StyleSheet } from 'react-native'; 
+import StackNavigator from '../navigators/stackAlertNav';
 
 const AlertScreen = props => { 
     return (
-        <View style={styles.screen}>
-            <Text>Alert Screen</Text>
-        </View>   
+        <StackNavigator />
     )
 }
 

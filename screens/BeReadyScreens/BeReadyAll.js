@@ -1,12 +1,11 @@
-
 import React from 'react'; 
 import { Text, View, StyleSheet, Button} from 'react-native'; 
 
-const SettingsScreen = props => { 
+const BeReadyAllScreen = props => { 
   console.log(props)
     return (
         <View style={styles.screen}>
-            <Text>Settings Screen</Text>
+            <Text>Be Ready: All Screen</Text>
             <Button title="Go Back" onPress={() => props.navigation.goBack()}/>
         </View>   
     )
@@ -20,4 +19,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export {SettingsScreen}
+export {BeReadyAllScreen}
