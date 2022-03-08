@@ -1,6 +1,7 @@
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react'; 
-import { Text, View, StyleSheet } from 'react-native'; 
-import { TextInput } from 'react-native-gesture-handler';
+import { Text, View, StyleSheet, TextInput, Button} from 'react-native'; 
+import { Alert } from 'react-native-web';
 
 const LogInScreen = props => { 
     return (
@@ -8,6 +9,9 @@ const LogInScreen = props => {
             <Text>Log In</Text>
             <TextInput placeholder='Email'/>
             <TextInput placeholder='Password' secureTextEntry = {true}/>
+            <Button 
+              title = "Login" 
+              />
         </View>   
     )
 }
