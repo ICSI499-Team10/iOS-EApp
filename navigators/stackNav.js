@@ -1,9 +1,9 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack'
 import {AccountScreenSub} from '../screens/AccountSub';
-import {SettingsScreen} from '../screens/Settings'; 
-import {ContactScreen} from '../screens/Contact'; 
-import {AboutScreen} from '../screens/About';
+import {SettingsScreen} from '../screens/AccountScreens/Settings'; 
+import {ContactScreen} from '../screens/AccountScreens/Contact'; 
+import {AboutScreen} from '../screens/AccountScreens/About';
 
 const Stack = createStackNavigator();
 
