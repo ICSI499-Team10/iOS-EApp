@@ -3,26 +3,25 @@ import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 import { get } from 'react-native/Libraries/Utilities/PixelRatio';
 
 const fetchData = () => {
-    const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
     const getData = async () => { 
         try { 
             console.log("get data function")
             const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
-            const data = await fetch(URI, {
+            const response = await fetch(URI, {
                 headers: {
                     AuthToken: '4xm7HKg@SY$Q@2BeA3&9X4Ck^8EX$@mM', 
                     RecentDate: null
                 },
-            }).then((response) => response.json()).then((responseJSON) => 
-                console.log(responseJSON)
-            ); 
-
+            })
+            const dataJSON = await response.json() 
+            console.log(dataJSON["incidents"][1]["category"])
+            setData(dataJSON["incidents"])
         } catch (error){ 
             console.log(error)
         } finally { 
-            setLoading(false)
+            //setLoading(false)
         }
     }
 
@@ -39,3 +38,7 @@ const fetchData = () => {
 }
 
 export {fetchData}
+
+/* .then((response) => response.json()).then((responseJSON) => 
+        console.log(responseJSON)
+    ); */
