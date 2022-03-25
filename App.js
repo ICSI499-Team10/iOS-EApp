@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, View, StyleSheet, Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-//import BottomTabNavigator from './navigators/bottomTabNav';
+import BottomTabNavigator from './navigators/bottomTabNav';
 import {LoginNavigator} from './navigators/loginNav';
 
 
