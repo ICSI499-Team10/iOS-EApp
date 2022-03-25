@@ -1,82 +1,41 @@
-import React, { useEffect, useState } from 'react'; 
-import {StyleSheet, View, Text, Button, ActivityIndicator, FlatList} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+import { get } from 'react-native/Libraries/Utilities/PixelRatio';
 
-const mainfunction = () => {
+const fetchData = () => {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
-    const getData = async () => {
-        try {
-            /*
-            const response = await fetch('https://reactnative.dev/movies.json');
-            const json = await response.json();
-            console.log(json);
-            setData(json.movies);
-            */
-
-            const response = await fetch('http://eapp-test.arcc.albany.edu/publish/Incident', {
-                method: 'GET',
+    const getData = async () => { 
+        try { 
+            console.log("get data function")
+            const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
+            const data = await fetch(URI, {
                 headers: {
-                    "AuthToken": "br22&@uJbpFyH2UayJwG*rfvFKjye7m!",
-                    "RecentDate": null
-                }
-            });
-            const json = await response.json();
-            console.log(json);
-            setData(json);
-        } catch (error) {
-            console.error(error);
-        } finally {
-            setLoading(false);
+                    AuthToken: '4xm7HKg@SY$Q@2BeA3&9X4Ck^8EX$@mM', 
+                    RecentDate: null
+                },
+            }).then((response) => response.json()).then((responseJSON) => 
+                console.log(responseJSON)
+            ); 
+
+        } catch (error){ 
+            console.log(error)
+        } finally { 
+            setLoading(false)
         }
     }
 
-    useEffect(() => {
-        getData();
-    }, []);
+    useEffect(() => { 
+        console.log("Use effect")
+        getData()
+    },[])
 
     return (
-        <View style={{ flex: 1, padding: 24 }}>
-            {isLoading ? <ActivityIndicator/> : (
-            <FlatList
-            data={data}
-            keyExtractor={({ id }, index) => id}
-            renderItem={({ item }) => (
-                <Text>{item.title}, {item.timeOfEvent}</Text>
-                //<Text>{item.title}, {item.releaseYear}</Text>
-            )}
-            />
-            )}
+        <View>
+            <Text>Test Screen for Data</Text>
         </View>
-    );
-};
+    )
+}
 
-/*
-const mainfunction = () => {
-    return fetch('http://eapp-test.arcc.albany.edu/publish/Incident', {
-        method: 'GET',
-        headers: {
-            AuthToken: 'br22&@uJbpFyH2UayJwG*rfvFKjye7m!',
-            RecentDate: 'null'
-        }
-    })
-    .then((response) => response.json())
-    .then((jsondata) => {
-        console.log(jsondata);
-        return jsondata;
-    })
-    .catch((error) => {
-        console.error(error);
-    });
-};
-
-const styles = StyleSheet.create({
-  screen: { 
-    flex: 1, 
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
-*/
-
-export {mainfunction}
+export {fetchData}
