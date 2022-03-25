@@ -5,6 +5,7 @@ import {AdvisoryScreen} from '../screens/Advisory';
 import {AlertScreen} from '../screens/Alert'; 
 import {BeReadyScreen} from '../screens/BeReady'; 
 import {AccountScreen} from '../screens/Account';
+import {fetchData} from '../screens/DataTest';
 
 const Tab = createBottomTabNavigator(); 
 
@@ -15,6 +16,7 @@ const BottomTabNavigator = () => {
             <Tab.Screen name="Alert" component={AlertScreen} />
             <Tab.Screen name="Be Ready" component={BeReadyScreen} />
             <Tab.Screen name="Account" component={AccountScreen} />
+            <Tab.Screen name="Data Test" component={fetchData} />
         </Tab.Navigator>
     )
 }
