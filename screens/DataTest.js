@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Text, View } from 'react-native';
-import { get } from 'react-native/Libraries/Utilities/PixelRatio';
+import {FlatList, Text, View, StyleSheet, ScrollView} from 'react-native';
 
 const fetchData = () => {
     const [data, setData] = useState([]);
-
+    const [isLoading, setLoading] = useState(true)
     const getData = async () => { 
         try { 
-            console.log("get data function")
             const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
             const response = await fetch(URI, {
                 headers: {
@@ -16,29 +14,39 @@ const fetchData = () => {
                 },
             })
             const dataJSON = await response.json() 
-            console.log(dataJSON["incidents"][1]["category"])
             setData(dataJSON["incidents"])
         } catch (error){ 
             console.log(error)
         } finally { 
-            //setLoading(false)
+            setLoading(false)
         }
     }
-
     useEffect(() => { 
-        console.log("Use effect")
         getData()
     },[])
 
     return (
-        <View>
-            <Text>Test Screen for Data</Text>
+        <View style={styles.screen}>
+            {isLoading ? <Text>Loading....</Text> : (
+                <ScrollView >
+                    <FlatList 
+                        data={data}
+                        keyExtractor={item => item.incidentId}
+                        renderItem={({item}) => (
+                            <Text>{item.category + " " + item.source}</Text>
+                        )}
+                    />
+                </ScrollView>
+            )}
         </View>
     )
 }
+const styles = StyleSheet.create({
+    screen: { 
+      flex: 1, 
+      justifyContent: 'center',
+      alignItems: 'center'
+    }
+})
 
 export {fetchData}
-
-/* .then((response) => response.json()).then((responseJSON) => 
-        console.log(responseJSON)
-    ); */
