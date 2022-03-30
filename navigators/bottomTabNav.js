@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from '../icons/icons'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import {AdvisoryScreen} from '../screens/Advisory'; 
@@ -16,13 +16,33 @@ const BottomTabNavigator = () => {
                 name="Advisory" 
                 component={AdvisoryScreen} 
                 options={{
-                    tabBarIcon: ({size, color}) => (<Icon name={"warning"} color={color} size={size}/>)
+                    tabBarIcon: ({size, color}) => (<Icon type="FontAwesome" name={"warning"} color={color} size={size}/>)
                 }}
             />
 
-            <Tab.Screen name="Alert" component={AlertScreen} />
-            <Tab.Screen name="Be Ready" component={BeReadyScreen} />
-            <Tab.Screen name="Account" component={AccountScreen} />
+            <Tab.Screen 
+                name="Alert" 
+                component={AlertScreen}
+                options={{
+                    tabBarIcon: ({size, color}) => (<Icon type="FontAwesome" name={"bell-o"} color={color} size={size}/>)
+                }} 
+
+            />
+            <Tab.Screen 
+                name="Be Ready" 
+                component={BeReadyScreen}
+                options={{
+                    tabBarIcon: ({size, color}) => (<Icon type="Ionicons" name={"happy-outline"} color={color} size={size}/>)
+                }}  
+            />
+            <Tab.Screen 
+                name="Account" 
+                component={AccountScreen}
+                options={{
+                    tabBarIcon: ({size, color}) => (<Icon type="Ionicons" name={"ios-person-circle"} color={color} size={size}/>)
+                }}   
+
+            />
         </Tab.Navigator>
     )
 }
