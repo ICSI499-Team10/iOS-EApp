@@ -12,7 +12,14 @@ const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => { 
     return(
         <Tab.Navigator>
-            <Tab.Screen name="Advisory" component={AdvisoryScreen} />
+            <Tab.Screen 
+                name="Advisory" 
+                component={AdvisoryScreen} 
+                options={{
+                    tabBarIcon: ({size, color}) => (<Icon name={"warning"} color={color} size={size}/>)
+                }}
+            />
+
             <Tab.Screen name="Alert" component={AlertScreen} />
             <Tab.Screen name="Be Ready" component={BeReadyScreen} />
             <Tab.Screen name="Account" component={AccountScreen} />
