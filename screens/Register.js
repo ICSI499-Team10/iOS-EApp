@@ -6,11 +6,14 @@ const RegisterScreen = ({navigation}) => {
     return (
         <View style={styles.screen}>
             <Text>Create an Account</Text>
-            <TextInput placeholder='First Name'/>
-            <TextInput placeholder='Last Name'/>
-            <TextInput placeholder='Email'/>
-            <TextInput placeholder='Password' secureTextEntry = {true}/>
+            <TextInput placeholder='Name' onChangeText={(text) => this.setState({name: text})}/>
+            <TextInput placeholder='Email' onChangeText={(text) => this.setState({email: text})}/>
+            <TextInput placeholder='Phone Number' onChangeText={(text) => this.setState({phone: text})}/>
+            <TextInput placeholder='Password' secureTextEntry = {true} onChangeText={(text) => this.setState({password: text})}/>
             <TextInput placeholder='Confirm Password' secureTextEntry = {true}/>
+            <TextInput placeholder='Address' onChangeText={(text) => this.setState({address: text})}/>
+            <TextInput placeholder='Emergency Contact' onChangeText={(text) => this.setState({emergencyName: text})}/>
+            <TextInput placeholder='Emergency Contact Phone Number' onChangeText={(text) => this.setState({emergencyPhone: text})}/>
             <Button 
               title = "Create Account"
               onPress = {() => function POSTaccount() {
@@ -25,15 +28,14 @@ const RegisterScreen = ({navigation}) => {
                     body: {
                       "userType": "",
                       "user": {
-                        "firstName": "",
-                        "lastName": "",
-                        "email": "",
+                        "name": this.state.name,
+                        "email": this.state.email,
                         "mac": "",
-                        "password": "",
-                        "address": "",
-                        "phone": "",
-                        "emergencyName": "",
-                        "emergencyPhone": ""
+                        "password": this.state.password,
+                        "address": this.state.address,
+                        "phone": this.state.phone,
+                        "emergencyName": this.state.emergencyName,
+                        "emergencyPhone": this.state.emergencyPhone
                       }
                     }
                   });
