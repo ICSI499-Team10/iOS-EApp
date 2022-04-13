@@ -14,6 +14,34 @@ const RegisterScreen = ({navigation}) => {
             <Button 
               title = "Create Account"
               onPress = {() => function POSTaccount() {
+                try {
+                  const URI = "http://eapp-test.arcc.albany.edu/publish/CreateAccount"
+                  const response = await fetch(URI, {
+                    method: "POST",
+                    headers: {
+                      Accept: 'application/json',
+                      'Content-Type': 'application/json'
+                    },
+                    body: {
+                      "userType": "",
+                      "user": {
+                        "firstName": "",
+                        "lastName": "",
+                        "email": "",
+                        "mac": "",
+                        "password": "",
+                        "address": "",
+                        "phone": "",
+                        "emergencyName": "",
+                        "emergencyPhone": ""
+                      }
+                    }
+                  });
+                  const dataJSON = await response.json();
+                  console.log(dataJSON);
+                } catch (error) {
+                  console.log(error);
+                }
               }}
             />
             <Button 
