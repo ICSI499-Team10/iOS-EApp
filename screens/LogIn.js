@@ -10,8 +10,12 @@ const LogInScreen = ({navigation}) => {
             <TextInput placeholder='Password' secureTextEntry = {true}/>
             <Button 
               title = "Login"
-              onPress={() => navigation.navigate("Bottom Tab")} 
+              onPress = {() => navigation.navigate("Bottom Tab")} 
               />
+            <Button
+              title = "Register"
+              onPress = {() => navigation.navigate("Register")}
+            />
         </View>   
     )
 }
