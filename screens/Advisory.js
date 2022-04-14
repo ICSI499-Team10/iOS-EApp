@@ -1,19 +1,13 @@
 import React from 'react'; 
 import { Text, View, StyleSheet } from 'react-native'; 
+import { Button } from 'react-native-web';
 import StackNavigator from '../navigators/stackAdvisoryNav';
+import {globalStyles} from '../styles/globalStyles';
 
 const AdvisoryScreen = props => { 
     return (
-        <StackNavigator />
+      <StackNavigator/>
     )
 }
-
-const styles = StyleSheet.create({
-  screen: { 
-    flex: 1, 
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
 
 export {AdvisoryScreen}
