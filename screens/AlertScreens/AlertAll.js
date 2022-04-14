@@ -1,13 +1,54 @@
-import React from 'react'; 
-import { Text, View, StyleSheet, Button} from 'react-native'; 
+import React, {useEffect, useState} from 'react'; 
+import { Text, StyleSheet, Button, FlatList, SafeAreaView} from 'react-native'; 
 
 const AlertAllScreen = props => { 
-  console.log(props)
+    const [data, setData] = useState([])
+    const [isLoading, setLoading] = useState(true)
+    const [alerts, setAlerts] = useState([])
+    const alertsList = []
+    const getAdvisory = async () => { 
+      try { 
+        const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
+        const response = await fetch(URI, {
+            headers: {
+                AuthToken: '4xm7HKg@SY$Q@2BeA3&9X4Ck^8EX$@mM', 
+                RecentDate: null
+            },
+        })
+        const dataJSON = await response.json() 
+        setData(dataJSON["incidents"])
+        for(let i = 0; i < data.length; i++){ 
+          if(data[i]["category"] === "Alerts"){ 
+            alertsList.push(data[i])
+          }
+        }
+        setAlerts(alertsList)
+      } catch (error){ 
+        console.log(error)
+      } finally { 
+        setLoading(false)
+      }
+    }
+    useEffect(() => {
+      getAdvisory()
+    },[])
+
     return (
-        <View style={styles.screen}>
-            <Text>Alert: All Screen</Text>
-            <Button title="Go Back" onPress={() => props.navigation.goBack()}/>
-        </View>   
+      <SafeAreaView>
+        <Button title="Go Back" onPress={() => props.navigation.goBack()}/>
+        {isLoading ? <Text>Loading...</Text> : (
+          <SafeAreaView>
+            <Text>Alerts All Screen</Text>
+            <FlatList 
+              data={alerts}
+              keyExtractor={item => item.incidentId}
+              renderItem={({item}) => (
+                <Text>{item.category + " " + item.source}</Text>
+              )}
+            />
+          </SafeAreaView>
+        )}
+      </SafeAreaView>
     )
 }
 
