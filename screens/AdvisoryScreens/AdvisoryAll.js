@@ -1,5 +1,5 @@
 import React from 'react'; 
-import { Text, View, StyleSheet, Button} from 'react-native'; 
+import {Text, View, StyleSheet, Button} from 'react-native'; 
 
 const AdvisoryAllScreen = props => { 
   console.log(props)

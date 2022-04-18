@@ -7,6 +7,7 @@ import {AdvisoryHealthScreen} from '../screens/AdvisoryScreens/AdvisoryHealth';
 import {AdvisoryRoadsScreen} from '../screens/AdvisoryScreens/AdvisoryRoads';
 import {AdvisoryWeatherScreen} from '../screens/AdvisoryScreens/AdvisoryWeather'; 
 import {AdvisoryOtherScreen} from '../screens/AdvisoryScreens/AdvisoryOther';
+import {globalStyles} from '../styles/globalStyles';
 
 const Stack = createStackNavigator();
 

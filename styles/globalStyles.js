@@ -1,12 +1,12 @@
-import {StyleSheet} from "react-native-web";
+import {StyleSheet} from "react-native";
 
 export const globalStyles = StyleSheet.create({
-    screen:{
+    stackNavStyle:{
+        height:100,
+        justifyContent: "top",
+        alignItems: "flex-start",
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 24,
-        color: 'red',
+        flexDirection: "row"
     }
 });
 
