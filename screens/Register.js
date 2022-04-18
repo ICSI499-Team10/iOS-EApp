@@ -1,16 +1,15 @@
-import React from 'react'; 
+import React, {useState} from 'react'; 
 import { Text, View, StyleSheet, TextInput, Button} from 'react-native'; 
-import { Alert } from 'react-native-web';
 
 const RegisterScreen = ({navigation}) => {
-  const [name, setName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [mac, setMAC] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [address, setAddress] = React.useState('');
-  const [phone, setPhone] = React.useState('');
-  const [emergencyName, setEmergencyName] = React.useState('');
-  const [emergencyPhone, setEmergencyPhone] = React.useState('');
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [mac, setMAC] = useState('')
+  const [password, setPassword] = useState('')
+  const [address, setAddress] = useState('')
+  const [phone, setPhone] = useState('')
+  const [emergencyName, setEmergencyName] = useState('')
+  const [emergencyPhone, setEmergencyPhone] = useState('')
 
   const req = {
     method: "POST",
@@ -18,19 +17,19 @@ const RegisterScreen = ({navigation}) => {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     },
-    body: {
-      "userType": "",
+    body: JSON.stringify({
+      "userType": "Visitor",
       "user": {
         "name": name,
         "email": email,
-        "mac": mac,
+        "mac": '3c:06:30:38:b6:14',
         "password": password,
         "address": address,
         "phone": phone,
         "emergencyName": emergencyName,
         "emergencyPhone": emergencyPhone
       }
-    }
+    })
   };
 
   const submitHandler = async () => {
@@ -38,7 +37,7 @@ const RegisterScreen = ({navigation}) => {
       const URI = "http://eapp-test.arcc.albany.edu/publish/CreateAccount";
       const response = await fetch(URI, req);
       const dataJSON = await response.json();
-      console.log(dataJSON["user"]);
+      console.log(dataJSON);
     } catch(error) {
       console.log(error);
     }
@@ -51,7 +50,6 @@ const RegisterScreen = ({navigation}) => {
           <TextInput placeholder='Email' onChangeText={email => setEmail(email)}/>
           <TextInput placeholder='Phone Number' onChangeText={phone => setPhone(phone)}/>
           <TextInput placeholder='Password' secureTextEntry = {true} onChangeText={password => setPassword(password)}/>
-          <TextInput placeholder='Confirm Password' secureTextEntry = {true}/>
           <TextInput placeholder='Address' onChangeText={address => setAddress(address)}/>
           <TextInput placeholder='Emergency Contact' onChangeText={emergencyName => setEmergencyName(emergencyName)}/>
           <TextInput placeholder='Emergency Contact Phone Number' onChangeText={emergencyPhone => setEmergencyPhone(emergencyPhone)}/>
