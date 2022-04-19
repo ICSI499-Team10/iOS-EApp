@@ -4,7 +4,7 @@ import {globalStyles} from '../styles/globalStyles';
 
 const AccountScreen = ({navigation}) => { 
   return (
-    <View style={globalStyles.settingScreen}>
+    <View style={globalStyles.accScreen}>
       <Button
         title="Settings"
         color="#46AFFF" 
