@@ -6,6 +6,13 @@ export const globalStyles = StyleSheet.create({
         alignItems: "flex-start",
         flex: 1,
         flexDirection: "row"
+    },
+
+    settingScreen:{
+        height:100,
+        alignItems: "flex-start",
+        flex: 1,
+        flexDirection: "column"
     }
 });
 

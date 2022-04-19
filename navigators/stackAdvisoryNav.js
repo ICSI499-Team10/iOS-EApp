@@ -1,20 +1,19 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack'
-import {AdvisoryScreenSub} from '../screens/AdvisorySub';
+import {AdvisoryScreen} from '../screens/Advisory';
 import {AdvisoryAllScreen} from '../screens/AdvisoryScreens/AdvisoryAll';
 import {AdvisoryFireScreen} from '../screens/AdvisoryScreens/AdvisoryFire'; 
 import {AdvisoryHealthScreen} from '../screens/AdvisoryScreens/AdvisoryHealth'; 
 import {AdvisoryRoadsScreen} from '../screens/AdvisoryScreens/AdvisoryRoads';
 import {AdvisoryWeatherScreen} from '../screens/AdvisoryScreens/AdvisoryWeather'; 
 import {AdvisoryOtherScreen} from '../screens/AdvisoryScreens/AdvisoryOther';
-import {globalStyles} from '../styles/globalStyles';
 
 const Stack = createStackNavigator();
 
-const stackAdvisoryNavigator = () => { 
+const StackAdvisoryNavigator = () => { 
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="Advisory" component={AdvisoryScreenSub} />
+            <Stack.Screen name="Advisory" component={AdvisoryScreen} />
             <Stack.Screen name="All" component={AdvisoryAllScreen} />
             <Stack.Screen name="Fire" component={AdvisoryFireScreen} />
             <Stack.Screen name="Health" component={AdvisoryHealthScreen} />
@@ -25,4 +24,4 @@ const stackAdvisoryNavigator = () => {
     )
 }
 
-export default stackAdvisoryNavigator;
+export default StackAdvisoryNavigator;

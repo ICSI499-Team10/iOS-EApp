@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack'
-import {AlertScreenSub} from '../screens/AlertSub';
+import {AlertScreen} from '../screens/Alert';
 import {AlertAllScreen} from '../screens/AlertScreens/AlertAll';
 import {AlertFireScreen} from '../screens/AlertScreens/AlertFire'; 
 import {AlertHealthScreen} from '../screens/AlertScreens/AlertHealth'; 
@@ -10,10 +10,10 @@ import {AlertOtherScreen} from '../screens/AlertScreens/AlertOther';
 
 const Stack = createStackNavigator();
 
-const stackAlertNavigator = () => { 
+const StackAlertNavigator = () => { 
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="Advisory" component={AlertScreenSub} />
+            <Stack.Screen name="Alert" component={AlertScreen} />
             <Stack.Screen name="All" component={AlertAllScreen} />
             <Stack.Screen name="Fire" component={AlertFireScreen} />
             <Stack.Screen name="Health" component={AlertHealthScreen} />
@@ -24,4 +24,4 @@ const stackAlertNavigator = () => {
     )
 }
 
-export default stackAlertNavigator;
+export default StackAlertNavigator;

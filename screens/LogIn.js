@@ -1,6 +1,5 @@
 import React from 'react'; 
 import { Text, View, StyleSheet, TextInput, Button} from 'react-native'; 
-import { Alert } from 'react-native-web';
 
 const LogInScreen = ({navigation}) => { 
     return (

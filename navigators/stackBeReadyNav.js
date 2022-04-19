@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack'
-import {BeReadyScreenSub} from '../screens/BeReadySub';
+import {BeReadyScreen} from '../screens/BeReady';
 import {BeReadyAllScreen} from '../screens/BeReadyScreens/BeReadyAll';
 import {BeReadyFireScreen} from '../screens/BeReadyScreens/BeReadyFire'; 
 import {BeReadyHealthScreen} from '../screens/BeReadyScreens/BeReadyHealth'; 
@@ -10,10 +10,10 @@ import {BeReadyOtherScreen} from '../screens/BeReadyScreens/BeReadyOther';
 
 const Stack = createStackNavigator();
 
-const stackBeReadyNavigator = () => { 
+const StackBeReadyNavigator = () => { 
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="Advisory" component={BeReadyScreenSub} />
+            <Stack.Screen name="Be Ready" component={BeReadyScreen} />
             <Stack.Screen name="All" component={BeReadyAllScreen} />
             <Stack.Screen name="Fire" component={BeReadyFireScreen} />
             <Stack.Screen name="Health" component={BeReadyHealthScreen} />
@@ -24,4 +24,4 @@ const stackBeReadyNavigator = () => {
     )
 }
 
-export default stackBeReadyNavigator;
+export default StackBeReadyNavigator;
