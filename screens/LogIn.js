@@ -25,6 +25,14 @@ const LogInScreen = ({navigation}) => {
         const response = await fetch(URI, req);
         const dataJSON = await response.json();
         console.log(dataJSON)
+        if(dataJSON === null){ 
+          alert("Incorrect email or password. Try again!")
+        } else { 
+          if(dataJSON["token"]){ 
+            console.log("navigating to bottom tabs")
+            navigation.navigate("Bottom Tab")
+          }
+        }
       } catch(error) { 
         console.log(error)
       }

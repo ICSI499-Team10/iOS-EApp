@@ -13,6 +13,9 @@ const AccountScreenSub = props => {
         <Button title="About Us" onPress={() => { 
           props.navigation.navigate('About')
         }}/>
+        <Button title="Log Out" onPress={() => { 
+          props.navigation.navigate('Login')
+        }}/>
     </View>
   )
 }

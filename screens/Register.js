@@ -37,7 +37,7 @@ const RegisterScreen = ({navigation}) => {
       const URI = "http://eapp-test.arcc.albany.edu/publish/CreateAccount";
       const response = await fetch(URI, req);
       const dataJSON = await response.json();
-      console.log(dataJSON);
+      console.log(dataJSON); 
     } catch(error) {
       console.log(error);
     }
