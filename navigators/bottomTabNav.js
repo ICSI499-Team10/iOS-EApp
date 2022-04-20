@@ -5,7 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import AdvisoryStack from '../navigators/stackAdvisoryNav'; 
 import AlertStack from '../navigators/stackAlertNav'; 
 import BeReadyStack from '../navigators/stackBeReadyNav'; 
-import AccountStack from '../navigators/stackAccNav';
+import AccountStack from '../navigators/stackNav';
 
 const Tab = createBottomTabNavigator(); 
 
