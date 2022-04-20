@@ -15,6 +15,7 @@ const fetchData = () => {
             })
             const dataJSON = await response.json() 
             setData(dataJSON["incidents"])
+            console.log(data[0]["category"])
         } catch (error){ 
             console.log(error)
         } finally { 
@@ -26,7 +27,7 @@ const fetchData = () => {
     },[])
 
     return (
-        <View style={styles.screen}>
+        <ScrollView>
             {isLoading ? <Text>Loading....</Text> : (
                 <ScrollView >
                     <FlatList 
@@ -38,7 +39,7 @@ const fetchData = () => {
                     />
                 </ScrollView>
             )}
-        </View>
+        </ScrollView>
     )
 }
 const styles = StyleSheet.create({
