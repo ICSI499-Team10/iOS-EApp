@@ -1,5 +1,7 @@
 import React, {useState} from 'react'; 
-import { Text, View, StyleSheet, TextInput, Button} from 'react-native'; 
+import {Text, View, StyleSheet, TextInput, Button} from 'react-native'; 
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+import {globalStyles} from '../styles/globalStyles';
 
 const LogInScreen = ({navigation}) => { 
     const [email, setEmail] = useState('')
@@ -38,28 +40,42 @@ const LogInScreen = ({navigation}) => {
       }
     }
     return (
-        <View style={styles.screen}>
-            <Text>Log In</Text>
-            <TextInput placeholder='Email' onChangeText={name => setEmail(name)}/>
-            <TextInput placeholder='Password' secureTextEntry = {true} onChangeText={password => setPassword(password)}/>
-            <Button 
-              title = "Login"
-              onPress = {() => submitHandler(this)} 
-              />
-            <Button
-              title = "Register"
-              onPress = {() => navigation.navigate("Register")}
+        <View style={globalStyles.loginContainer}>
+            <Text style = {globalStyles.titleText}>Log In</Text>
+            <TextInput 
+              placeholder='Email' 
+              onChangeText={name => setEmail(name)}
+              style = {globalStyles.textInput}
             />
+            <TextInput 
+              placeholder='Password' 
+              secureTextEntry = {true} 
+              onChangeText={password => setPassword(password)}
+              style = {globalStyles.textInput}
+            />
+            <Button 
+              title = "Forgot Password?"
+              onPress = {() => alert("Not a feature yet")}
+              color = "#46AFFF" 
+            />
+            <View style = {globalStyles.containerSub}>
+              <View style = {globalStyles.loginButtons}>
+                <Button 
+                  title = "Login"
+                  onPress = {() => submitHandler(this)}
+                  color = "white" 
+                />
+              </View>
+              <View style = {globalStyles.loginButtons}>
+                <Button
+                  title = "Register"
+                  onPress = {() => navigation.navigate("Register")}
+                  color = "white"
+                />
+              </View>
+            </View>
         </View>   
     )
 }
-
-const styles = StyleSheet.create({
-  screen: { 
-    flex: 1, 
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
 
 export {LogInScreen}
