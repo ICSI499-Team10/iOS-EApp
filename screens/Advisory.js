@@ -1,13 +1,44 @@
 import React from 'react'; 
-import { Text, View, StyleSheet } from 'react-native'; 
-import { Button } from 'react-native-web';
-import StackNavigator from '../navigators/stackAdvisoryNav';
+import {View, Button} from 'react-native'; 
 import {globalStyles} from '../styles/globalStyles';
 
-const AdvisoryScreen = props => { 
+
+const AdvisoryScreen = ({navigation}) => { 
     return (
-      <StackNavigator/>
+      <View style={globalStyles.stackNavStyle}>
+        <Button
+          title="All"
+          color="#46AFFF" 
+          onPress={() => navigation.navigate("All")}
+          />
+          <Button
+          title="Fire"
+          color="#46AFFF" 
+          onPress={() => navigation.navigate("Fire")}
+          />
+          <Button
+          title="Health"
+          color="#46AFFF" 
+          onPress={() => navigation.navigate("Health")}
+          />
+          <Button
+          title="Roads"
+          color="#46AFFF" 
+          onPress={() => navigation.navigate("Roads")}
+          />
+          <Button
+          title="Weather"
+          color="#46AFFF" 
+          onPress={() => navigation.navigate("Weather")}
+          />
+          <Button
+          title="Other"
+          color="#46AFFF" 
+          onPress={() => navigation.navigate("Other")}
+          />
+      </View>
     )
 }
+
 
 export {AdvisoryScreen}

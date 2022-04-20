@@ -1,19 +1,27 @@
 import React from 'react'; 
-import { StyleSheet} from 'react-native';
-import StackNavigator from '../navigators/stackNav';
+import {View, Button} from 'react-native';
+import {globalStyles} from '../styles/globalStyles';
 
-const AccountScreen = props => { 
-    return (
-        <StackNavigator />
-    )
+const AccountScreen = ({navigation}) => { 
+  return (
+    <View style={globalStyles.accScreen}>
+      <Button
+        title="Settings"
+        color="#46AFFF" 
+        onPress={() => navigation.navigate("Settings")}
+      />
+      <Button
+        title="Contact"
+        color="#46AFFF" 
+        onPress={() => navigation.navigate("Contact")}
+      />
+      <Button
+        title="About"
+        color="#46AFFF" 
+        onPress={() => navigation.navigate("About")}
+      />
+    </View>
+  )
 }
-
-const styles = StyleSheet.create({
-  screen: { 
-    flex: 1, 
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
 
 export {AccountScreen}

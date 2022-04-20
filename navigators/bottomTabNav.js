@@ -2,10 +2,10 @@ import React from 'react';
 import Icon from '../icons/icons'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import {AdvisoryScreen} from '../screens/Advisory'; 
-import {AlertScreen} from '../screens/Alert'; 
-import {BeReadyScreen} from '../screens/BeReady'; 
-import {AccountScreen} from '../screens/Account';
+import AdvisoryStack from '../navigators/stackAdvisoryNav'; 
+import AlertStack from '../navigators/stackAlertNav'; 
+import BeReadyStack from '../navigators/stackBeReadyNav'; 
+import AccountStack from '../navigators/stackNav';
 
 const Tab = createBottomTabNavigator(); 
 
@@ -14,7 +14,7 @@ const BottomTabNavigator = () => {
         <Tab.Navigator>
             <Tab.Screen 
                 name="Advisory" 
-                component={AdvisoryScreen} 
+                component={AdvisoryStack} 
                 options={{
                     tabBarIcon: ({size, color}) => (<Icon type="FontAwesome" name={"warning"} color={color} size={size}/>)
                 }}
@@ -22,7 +22,7 @@ const BottomTabNavigator = () => {
 
             <Tab.Screen 
                 name="Alert" 
-                component={AlertScreen}
+                component={AlertStack}
                 options={{
                     tabBarIcon: ({size, color}) => (<Icon type="FontAwesome" name={"bell-o"} color={color} size={size}/>)
                 }} 
@@ -30,14 +30,14 @@ const BottomTabNavigator = () => {
             />
             <Tab.Screen 
                 name="Be Ready" 
-                component={BeReadyScreen}
+                component={BeReadyStack}
                 options={{
                     tabBarIcon: ({size, color}) => (<Icon type="Ionicons" name={"happy-outline"} color={color} size={size}/>)
                 }}  
             />
             <Tab.Screen 
                 name="Account" 
-                component={AccountScreen}
+                component={AccountStack}
                 options={{
                     tabBarIcon: ({size, color}) => (<Icon type="Ionicons" name={"ios-person-circle"} color={color} size={size}/>)
                 }}   
