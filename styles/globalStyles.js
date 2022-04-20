@@ -11,7 +11,7 @@ export const globalStyles = StyleSheet.create({
     },
 
     loginContainer:{
-        flex: 1, 
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -28,7 +28,19 @@ export const globalStyles = StyleSheet.create({
     titleText:{
         fontSize: 30,
         fontWeight: "bold"
+    },
 
+    loginButtons:{
+        width: "30%",
+        backgroundColor: "#46AFFF"
+    },
+
+    containerSub:{
+        width: "80%",
+        height: "20%",
+        alignItems: "center",
+        justifyContent: "space-evenly",
+        padding: 5
     }
 
 });

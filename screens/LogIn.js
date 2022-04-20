@@ -1,5 +1,6 @@
 import React, {useState} from 'react'; 
 import {Text, View, StyleSheet, TextInput, Button} from 'react-native'; 
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 import {globalStyles} from '../styles/globalStyles';
 
 const LogInScreen = ({navigation}) => { 
@@ -53,13 +54,26 @@ const LogInScreen = ({navigation}) => {
               style = {globalStyles.textInput}
             />
             <Button 
-              title = "Login"
-              onPress = {() => submitHandler(this)} 
+              title = "Forgot Password?"
+              onPress = {() => alert("Not a feature yet")}
+              color = "#46AFFF" 
             />
-            <Button
-              title = "Register"
-              onPress = {() => navigation.navigate("Register")}
-            />
+            <View style = {globalStyles.containerSub}>
+              <View style = {globalStyles.loginButtons}>
+                <Button 
+                  title = "Login"
+                  onPress = {() => submitHandler(this)}
+                  color = "white" 
+                />
+              </View>
+              <View style = {globalStyles.loginButtons}>
+                <Button
+                  title = "Register"
+                  onPress = {() => navigation.navigate("Register")}
+                  color = "white"
+                />
+              </View>
+            </View>
         </View>   
     )
 }
