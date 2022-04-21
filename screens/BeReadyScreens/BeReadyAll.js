@@ -1,5 +1,14 @@
 import React, {useState, useEffect} from 'react'; 
-import { Text, SafeAreaView, StyleSheet, Button, FlatList} from 'react-native'; 
+import { 
+  Text, 
+  SafeAreaView, 
+  StyleSheet, 
+  Button, 
+  FlatList, 
+  RefreshControl, 
+  ActivityIndicator,
+  View,  
+} from 'react-native'; 
 
 const BeReadyAllScreen = props => { 
     const [data, setData] = useState([])
@@ -22,6 +31,7 @@ const BeReadyAllScreen = props => {
             beReadyList.push(data[i])
           }
         }
+        console.log(beReadyList.length)
         setBeReady(beReadyList)
       } catch (error){ 
         console.log(error)
@@ -29,6 +39,28 @@ const BeReadyAllScreen = props => {
         setLoading(false)
       }
     }
+
+    const onRefresh = () => { 
+      setBeReady([])
+      getBeReady()
+    }
+
+    const getItem = (item) => { 
+      alert('Description: ' + item.description)
+    }
+
+    const ItemSeparatorView = () => { 
+      return (
+        <View 
+          style={{
+            height: 1, 
+            width: '100%',
+            backgroundColor: "#607D8B"
+          }}
+        />
+      )
+    }
+
     useEffect(() => {
       getBeReady()
     },[])
@@ -36,15 +68,24 @@ const BeReadyAllScreen = props => {
     return (
       <SafeAreaView>
         <Button title="Go Back" onPress={() => props.navigation.goBack()}/>
-        {isLoading ? <Text>Loading...</Text> : (
-          <SafeAreaView>
-            <Text>Be Ready All Screen</Text>
+        {isLoading ? <ActivityIndicator/> : (
+          <SafeAreaView >
+            <Text>BeReadyAll Screen</Text>
             <FlatList 
+              style={{paddingBottom: 50}}
               data={beReady}
               keyExtractor={item => item.incidentId}
               renderItem={({item}) => (
-                <Text>{item.category + " " + item.source}</Text>
+                <Text onPress={() => getItem(item)}>{item.category + " " + item.title}</Text>
               )}
+              ItemSeparatorComponent={ItemSeparatorView}
+              scrollEnabled={true}
+              refreshControl={ 
+                <RefreshControl 
+                  refreshing={isLoading}
+                  onRefresh={onRefresh}
+                />
+              }
             />
           </SafeAreaView>
         )}
