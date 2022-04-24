@@ -41,6 +41,7 @@ const RegisterScreen = ({navigation}) => {
     } catch(error) {
       console.log(error);
     }
+    navigation.navigate("Bottom Tab");
   };
 
   return (
