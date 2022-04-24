@@ -9,8 +9,10 @@ import {
   ActivityIndicator,
   View,  
 } from 'react-native'; 
+import {init, insertIncident, fetchIncidents} from '../../utils/dbFunctions'
 
 const BeReadyAllScreen = props => { 
+    const description = "dummy description"
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
     const [beReady, setBeReady] = useState([])
@@ -63,6 +65,28 @@ const BeReadyAllScreen = props => {
 
     useEffect(() => {
       getBeReady()
+      init()
+        .then(() => { 
+          console.log("initialized database")
+        })
+        .catch(err => { 
+          console.log("intializing database failed")
+          console.log(err)
+        })
+      /*insertIncident(description)
+          .then((dbResult) => { 
+            console.log(dbResult)
+          })
+          .catch(err => { 
+            console.log(err)
+          })*/
+      fetchIncidents()
+          .then((dbResult) => { 
+            console.log(dbResult)
+          })
+          .catch(err => { 
+            console.log(err)
+          })
     },[])
 
     return (
