@@ -15,9 +15,10 @@ const helloName = async () => {
 }
 
 const AccountScreen = ({navigation}) => { 
+  var greetName = 'Hello, ' + helloName + '!';
   return (
     <View style={globalStyles.accScreen}>
-      <Text>Hello, </Text>
+      <Text>{greetName}</Text>
       <Button
         title="Settings"
         color="#46AFFF" 
