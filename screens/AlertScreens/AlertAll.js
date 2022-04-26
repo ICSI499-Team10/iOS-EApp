@@ -9,39 +9,25 @@ import {
   ActivityIndicator,
   View,  
 } from 'react-native'; 
+import {fetchAlerts} from '../../utils/dbFunctions';
 
 const AlertAllScreen = props => { 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
-    const [alerts, setAlerts] = useState([])
-    const alertsList = []
     const getAlerts = async () => { 
-      try { 
-        const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
-        const response = await fetch(URI, {
-            headers: {
-                AuthToken: '4xm7HKg@SY$Q@2BeA3&9X4Ck^8EX$@mM', 
-                RecentDate: null
-            },
+      fetchAlerts()
+        .then((dbResult) => { 
+          console.log(dbResult["rows"]["_array"][0])
+          setData(dbResult["rows"]["_array"])
+          setLoading(false)
         })
-        const dataJSON = await response.json() 
-        setData(dataJSON["incidents"])
-        for(let i = 0; i < data.length; i++){ 
-          if(data[i]["category"] === "Alerts"){ 
-            alertsList.push(data[i])
-          }
-        }
-        console.log(alertsList.length)
-        setAlerts(alertsList)
-      } catch (error){ 
-        console.log(error)
-      } finally { 
-        setLoading(false)
-      }
+        .catch(err => { 
+          console.log(err)
+        })
     }
 
     const onRefresh = () => { 
-      setAlerts([])
+      setData([])
       getAlerts()
     }
 
@@ -73,7 +59,7 @@ const AlertAllScreen = props => {
             <Text>Alerts All Screen</Text>
             <FlatList 
               style={{paddingBottom: 50}}
-              data={alerts}
+              data={data}
               keyExtractor={item => item.incidentId}
               renderItem={({item}) => (
                 <Text onPress={() => getItem(item)}>{item.category + " " + item.title}</Text>

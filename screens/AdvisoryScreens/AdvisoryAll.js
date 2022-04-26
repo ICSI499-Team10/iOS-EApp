@@ -10,13 +10,13 @@ import {
   View,  
 } from 'react-native'; 
 
+import { fetchAdvisory } from '../../utils/dbFunctions';
+
 const AdvisoryAllScreen = props => { 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
-    const [advisory, setAdvisory] = useState([])
-    const advisoryList = []
     const getAdvisory = async () => { 
-      try { 
+      /*try { 
         const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
         const response = await fetch(URI, {
             headers: {
@@ -37,11 +37,20 @@ const AdvisoryAllScreen = props => {
         console.log(error)
       } finally { 
         setLoading(false)
-      }
+      }*/
+      fetchAdvisory()
+        .then((dbResult) => { 
+          console.log(dbResult["rows"]["_array"])
+          setData(dbResult["rows"]["_array"])
+          setLoading(false)
+        })
+        .catch(err => { 
+          console.log(err)
+        })
     }
 
     const onRefresh = () => { 
-      setAdvisory([])
+      setData([])
       getAdvisory()
     }
 
@@ -73,7 +82,7 @@ const AdvisoryAllScreen = props => {
             <Text>Advisory All Screen</Text>
             <FlatList 
               style={{paddingBottom: 50}}
-              data={advisory}
+              data={data}
               keyExtractor={item => item.incidentId}
               renderItem={({item}) => (
                 <Text onPress={() => getItem(item)}>{item.category + " " + item.title}</Text>

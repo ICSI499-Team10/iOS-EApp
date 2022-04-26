@@ -9,17 +9,14 @@ import {
   ActivityIndicator,
   View,  
 } from 'react-native'; 
-import {init, insertIncident, fetchIncidents} from '../../utils/dbFunctions'
+import {fetchBeReady} from '../../utils/dbFunctions'
 
 const BeReadyAllScreen = props => { 
-    const description = "dummy description"
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
-    const [beReady, setBeReady] = useState([])
-    const beReadyList = []
     const getBeReady = async () => { 
-      try { 
-        const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
+      /*try { 
+        /*const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
         const response = await fetch(URI, {
             headers: {
                 AuthToken: '4xm7HKg@SY$Q@2BeA3&9X4Ck^8EX$@mM', 
@@ -28,22 +25,31 @@ const BeReadyAllScreen = props => {
         })
         const dataJSON = await response.json() 
         setData(dataJSON["incidents"])
-        for(let i = 0; i < data.length; i++){ 
-          if(data[i]["category"] === "BeReady"){ 
-            beReadyList.push(data[i])
-          }
-        }
-        console.log(beReadyList.length)
-        setBeReady(beReadyList)
+        fetchBeReady()
+          .then((dbResult) => { 
+            console.log(dbResult["rows"]["_array"][0])
+          })
+          .catch(err => { 
+            console.log(err)
+          })
       } catch (error){ 
         console.log(error)
       } finally { 
         setLoading(false)
-      }
+      }*/
+      fetchBeReady()
+        .then((dbResult) => { 
+          console.log(dbResult["rows"]["_array"][0])
+          setData(dbResult["rows"]["_array"])
+          setLoading(false)
+        })
+        .catch(err => { 
+          console.log(err)
+        })
     }
 
     const onRefresh = () => { 
-      setBeReady([])
+      setData([])
       getBeReady()
     }
 
@@ -65,28 +71,6 @@ const BeReadyAllScreen = props => {
 
     useEffect(() => {
       getBeReady()
-      init()
-        .then(() => { 
-          console.log("initialized database")
-        })
-        .catch(err => { 
-          console.log("intializing database failed")
-          console.log(err)
-        })
-      /*insertIncident(description)
-          .then((dbResult) => { 
-            console.log(dbResult)
-          })
-          .catch(err => { 
-            console.log(err)
-          })*/
-      fetchIncidents()
-          .then((dbResult) => { 
-            console.log(dbResult)
-          })
-          .catch(err => { 
-            console.log(err)
-          })
     },[])
 
     return (
@@ -97,7 +81,7 @@ const BeReadyAllScreen = props => {
             <Text>BeReadyAll Screen</Text>
             <FlatList 
               style={{paddingBottom: 50}}
-              data={beReady}
+              data={data}
               keyExtractor={item => item.incidentId}
               renderItem={({item}) => (
                 <Text onPress={() => getItem(item)}>{item.category + " " + item.title}</Text>
