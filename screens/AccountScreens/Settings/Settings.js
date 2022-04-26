@@ -6,10 +6,10 @@ import SettingsList from 'react-native-settings-list';
 
 const SettingsScreen = props => {
   
-  const [switchState, setState] = useState(false)
+  const [notificationState, setState] = useState(false)
 
-  const onValueChange = () =>{
-    if(switchState == false){
+  const onNotificationsChange = () =>{
+    if(notificationState == false){
       setState(true);
     }
     else{
@@ -23,8 +23,8 @@ const SettingsScreen = props => {
           <SettingsList.Header headerText='Notifications'/>
           <SettingsList.Item
             hasNavArrow={false}
-            switchState={switchState}
-            switchOnValueChange={onValueChange}
+            switchState={notificationState}
+            switchOnValueChange={onNotificationsChange}
             hasSwitch={true}
             title='Push Notifications'
           />
