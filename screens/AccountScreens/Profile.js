@@ -1,5 +1,5 @@
-import React from 'react'; 
-import { Text, View, StyleSheet, Button} from 'react-native';
+import React,{useState} from 'react'; 
+import { Text, View, StyleSheet, Button, TextInput} from 'react-native';
 
 const ProfileScreen = props => { 
     console.log(props);
