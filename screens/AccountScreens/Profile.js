@@ -12,42 +12,40 @@ const ProfileScreen = props => {
     const [emergencyName, setEmergencyName] = useState('');
     const [emergencyPhone, setEmergencyPhone] = useState('');
 
-    const req = {
+    const updateReq = {
         method: "POST",
         headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-        "userType": "Visitor",
-        "user": {
-            "name": name,
-            "email": email,
-            "mac": '3c:06:30:38:b6:14',
-            "password": password,
-            "address": address,
-            "phone": phone,
-            "emergencyName": emergencyName,
-            "emergencyPhone": emergencyPhone
-        }
+            "userType": "Visitor",
+            "user": {
+                "name": name,
+                "email": email,
+                "mac": '3c:06:30:38:b6:14',
+                "password": password,
+                "address": address,
+                "phone": phone,
+                "emergencyName": emergencyName,
+                "emergencyPhone": emergencyPhone
+            }
         })
     };
 
     const submitHandler = async () => {
-        const status = 0;
         try {
             const URI = "http://eapp-test.arcc.albany.edu/publish/UpdateAccount";
-            const response = await fetch(URI, req);
+            const response = await fetch(URI, updateReq);
             const dataJSON = await response.json();
-            status = response.status;
-            console.log(dataJSON); 
+            console.log(dataJSON);
+            if(response.status == 200) {
+                alert("Successfully updated information!");
+            } else {
+                alert("Error: try again later.");
+            }
         } catch(error) {
             console.log(error);
-        };
-        if(status == 200) {
-            alert("Successfully updated information!");
-        } else {
-            alert("Error: try again later.");
         }
     };
 
