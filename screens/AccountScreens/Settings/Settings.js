@@ -1,6 +1,7 @@
 import React from 'react'; 
 import {Text, View, StyleSheet, FlatList, Button, StatusBar, SafeAreaView} from 'react-native'; 
 
+
 const SettingsData = [
   {
     title: 'Item 1',
@@ -11,12 +12,13 @@ const SettingsData = [
   {
     title: 'Item 3',
   },
+ 
 
 ];
 
 const Item = ({title}) => (
-  <View>
-    <Text>{title}</Text>
+  <View style = {styles.screen}>
+    <Text style = {styles.screenTexttitle}> {title} </Text>
   </View>
 );
 
@@ -32,6 +34,7 @@ const SettingsScreen = props => {
         <FlatList
           data={SettingsData}
           renderItem={renderItem}
+          styles = {styles.screenText}
         />
       </SafeAreaView>  
   )
@@ -40,9 +43,14 @@ const SettingsScreen = props => {
 const styles = StyleSheet.create({
   screen: { 
     flex: 1, 
+    padding: 100,
     justifyContent: 'center',
     alignItems: 'center'
-  }
-})
+  },
+  screenText:{
+    fontStyle: 'italic',
+    fontWeight: 'bold'
+  },
+});
 
 export {SettingsScreen}
