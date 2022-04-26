@@ -1,42 +1,35 @@
-import React from 'react'; 
-import {Text, View, StyleSheet, FlatList, Button, StatusBar, SafeAreaView} from 'react-native'; 
+import React,{useState} from 'react'; 
+import {Text, View, StyleSheet, FlatList, Button, StatusBar, SafeAreaView, Switch} from 'react-native'; 
+import SettingsList from 'react-native-settings-list';
 
 
-const SettingsData = [
-  {
-    title: 'Item 1',
-  },
-  {
-    title: 'Item 2',
-  },
-  {
-    title: 'Item 3',
-  },
- 
 
-];
+const SettingsScreen = props => {
+  
+  const [switchState, setState] = useState(false)
 
-const Item = ({title}) => (
-  <View style = {styles.screen}>
-    <Text style = {styles.screenText}> {title} </Text>
-  </View>
-);
-
-
-const SettingsScreen = props => { 
-
-  const renderItem = ({item}) => (
-    <Item title={item.title}/>
-  );
+  const onValueChange = () =>{
+    if(switchState == false){
+      setState(true);
+    }
+    else{
+      setState(false);
+    }
+  }
 
   return (
-      <SafeAreaView style={styles.screen}>
-        <FlatList
-          data={SettingsData}
-          renderItem={renderItem}
-          
-        />
-      </SafeAreaView>  
+      <View>
+        <SettingsList>
+          <SettingsList.Header headerText='Notifications'/>
+          <SettingsList.Item
+            hasNavArrow={false}
+            switchState={switchState}
+            switchOnValueChange={onValueChange}
+            hasSwitch={true}
+            title='Push Notifications'
+          />
+        </SettingsList>
+      </View>  
   )
 }
 
