@@ -4,9 +4,9 @@ import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNat
 import {globalStyles} from '../styles/globalStyles';
 
 const LogInScreen = ({navigation}) => { 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [mac, setMAC] = useState('')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [mac, setMAC] = useState('');
 
     const req = {
       method: "POST", 
@@ -19,7 +19,7 @@ const LogInScreen = ({navigation}) => {
         "password": password,
         "mac": '3c:06:30:38:b6:14'
       })
-    }
+    };
 
     const submitHandler = async () => { 
       try { 
@@ -38,7 +38,8 @@ const LogInScreen = ({navigation}) => {
       } catch(error) { 
         console.log(error)
       }
-    }
+    };
+
     return (
         <View style={globalStyles.loginContainer}>
             <Text style = {globalStyles.titleText}>Log In</Text>
@@ -76,6 +77,6 @@ const LogInScreen = ({navigation}) => {
             </View>
         </View>   
     )
-}
+};
 
 export {LogInScreen}

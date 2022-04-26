@@ -2,14 +2,14 @@ import React, {useState} from 'react';
 import { Text, View, StyleSheet, TextInput, Button} from 'react-native'; 
 
 const RegisterScreen = ({navigation}) => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [mac, setMAC] = useState('')
-  const [password, setPassword] = useState('')
-  const [address, setAddress] = useState('')
-  const [phone, setPhone] = useState('')
-  const [emergencyName, setEmergencyName] = useState('')
-  const [emergencyPhone, setEmergencyPhone] = useState('')
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [mac, setMAC] = useState('');
+  const [password, setPassword] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
+  const [emergencyName, setEmergencyName] = useState('');
+  const [emergencyPhone, setEmergencyPhone] = useState('');
 
   const req = {
     method: "POST",
@@ -64,7 +64,7 @@ const RegisterScreen = ({navigation}) => {
           />
       </View>
   )
-}
+};
 
 const styles = StyleSheet.create({
   screen: { 
@@ -72,6 +72,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   }
-})
+});
 
 export {RegisterScreen}

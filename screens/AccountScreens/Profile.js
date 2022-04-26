@@ -34,15 +34,17 @@ const ProfileScreen = props => {
     };
 
     const submitHandler = async () => {
+        const status = 0;
         try {
             const URI = "http://eapp-test.arcc.albany.edu/publish/UpdateAccount";
             const response = await fetch(URI, req);
             const dataJSON = await response.json();
+            status = response.status;
             console.log(dataJSON); 
         } catch(error) {
             console.log(error);
         };
-        if(reponse.status == 200) {
+        if(status == 200) {
             alert("Successfully updated information!");
         } else {
             alert("Error: try again later.");
@@ -53,7 +55,7 @@ const ProfileScreen = props => {
         <View style={styles.screen}>
             <Text>Profile Screen</Text>
             <Text>Update User Information</Text>
-            <TextInput placeholder={name} onChangeText={name => setName(name)}/>
+            <TextInput placeholder='Name' onChangeText={name => setName(name)}/>
             <TextInput placeholder='Email' onChangeText={email => setEmail(email)}/>
             <TextInput placeholder='Phone Number' onChangeText={phone => setPhone(phone)}/>
             <TextInput placeholder='Password' secureTextEntry = {true} onChangeText={password => setPassword(password)}/>
@@ -65,7 +67,7 @@ const ProfileScreen = props => {
                 onPress = {() => submitHandler(this)}
             />
             <Button title="Go Back" onPress={() => props.navigation.goBack()}/>
-        </View>   
+        </View>
     )
 }
 
@@ -75,6 +77,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   }
-})
+});
 
 export {ProfileScreen}
