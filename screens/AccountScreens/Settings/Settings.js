@@ -18,7 +18,7 @@ const SettingsData = [
 
 const Item = ({title}) => (
   <View style = {styles.screen}>
-    <Text style = {styles.screenTexttitle}> {title} </Text>
+    <Text style = {styles.screenText}> {title} </Text>
   </View>
 );
 
@@ -34,7 +34,7 @@ const SettingsScreen = props => {
         <FlatList
           data={SettingsData}
           renderItem={renderItem}
-          styles = {styles.screenText}
+          
         />
       </SafeAreaView>  
   )
