@@ -15,28 +15,6 @@ const BeReadyAllScreen = props => {
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
     const getBeReady = async () => { 
-      /*try { 
-        /*const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
-        const response = await fetch(URI, {
-            headers: {
-                AuthToken: '4xm7HKg@SY$Q@2BeA3&9X4Ck^8EX$@mM', 
-                RecentDate: null
-            },
-        })
-        const dataJSON = await response.json() 
-        setData(dataJSON["incidents"])
-        fetchBeReady()
-          .then((dbResult) => { 
-            console.log(dbResult["rows"]["_array"][0])
-          })
-          .catch(err => { 
-            console.log(err)
-          })
-      } catch (error){ 
-        console.log(error)
-      } finally { 
-        setLoading(false)
-      }*/
       fetchBeReady()
         .then((dbResult) => { 
           console.log(dbResult["rows"]["_array"][0])

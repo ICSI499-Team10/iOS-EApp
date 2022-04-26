@@ -291,5 +291,92 @@ export const fetchAlertsWeather = () => {
     return promise
 }
 
+export const fetchBeReadyFire = () => { 
+    const promise = new Promise((resolve, reject) => { 
+        db.transaction((tx) => { 
+            tx.executeSql(
+            `SELECT * FROM incidents WHERE category = 'BeReady' AND incidentTypeId = 2;`, 
+            [], 
+            (_,result) => {
+                resolve(result)
+            }, 
+            (_,err) => {
+                reject(err)
+            })
+        })
+    })
+    return promise
+}
+
+export const fetchBeReadyHealth = () => { 
+    const promise = new Promise((resolve, reject) => { 
+        db.transaction((tx) => { 
+            tx.executeSql(
+            `SELECT * FROM incidents WHERE category = 'BeReady' AND incidentTypeId = 5;`, 
+            [], 
+            (_,result) => {
+                resolve(result)
+            }, 
+            (_,err) => {
+                reject(err)
+            })
+        })
+    })
+    return promise
+}
+
+export const fetchBeReadyOther = () => { 
+    const promise = new Promise((resolve, reject) => { 
+        db.transaction((tx) => { 
+            tx.executeSql(
+            `SELECT * FROM incidents WHERE category = 'BeReady' AND incidentTypeId = 5;`, 
+            [], 
+            (_,result) => {
+                resolve(result)
+            }, 
+            (_,err) => {
+                reject(err)
+            })
+        })
+    })
+    return promise
+}
+
+export const fetchBeReadyRoads = () => { 
+    const promise = new Promise((resolve, reject) => { 
+        db.transaction((tx) => { 
+            tx.executeSql(
+            `SELECT * FROM incidents WHERE category = 'BeReady' AND incidentTypeId = 4;`, 
+            [], 
+            (_,result) => {
+                resolve(result)
+            }, 
+            (_,err) => {
+                reject(err)
+            })
+        })
+    })
+    return promise
+}
+
+export const fetchBeReadyWeather = () => { 
+    const promise = new Promise((resolve, reject) => { 
+        db.transaction((tx) => { 
+            tx.executeSql(
+            `SELECT * FROM incidents WHERE category = 'BeReady' AND incidentTypeId = 1;`, 
+            [], 
+            (_,result) => {
+                resolve(result)
+            }, 
+            (_,err) => {
+                reject(err)
+            })
+        })
+    })
+    return promise
+}
+
+
+
 
 
