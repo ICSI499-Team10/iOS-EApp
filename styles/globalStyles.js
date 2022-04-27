@@ -30,8 +30,18 @@ export const globalStyles = StyleSheet.create({
         fontWeight: "bold"
     },
 
+    titleText2:{
+        fontSize: 24,
+        fontWeight: "bold"
+    },
+
     loginButtons:{
         width: "30%",
+        backgroundColor: "#46AFFF"
+    },
+
+    registerButtons:{
+        width: "50%",
         backgroundColor: "#46AFFF"
     },
 

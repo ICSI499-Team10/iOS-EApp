@@ -1,5 +1,6 @@
 import React, {useState} from 'react'; 
 import { Text, View, StyleSheet, TextInput, Button} from 'react-native'; 
+import {globalStyles} from '../styles/globalStyles';
 
 const RegisterScreen = ({navigation}) => {
   const [name, setName] = useState('')
@@ -45,33 +46,36 @@ const RegisterScreen = ({navigation}) => {
   };
 
   return (
-      <View style={styles.screen}>
-          <Text>Create an Account</Text>
-          <TextInput placeholder='Name' onChangeText={name => setName(name)}/>
-          <TextInput placeholder='Email' onChangeText={email => setEmail(email)}/>
-          <TextInput placeholder='Phone Number' onChangeText={phone => setPhone(phone)}/>
-          <TextInput placeholder='Password' secureTextEntry = {true} onChangeText={password => setPassword(password)}/>
-          <TextInput placeholder='Address' onChangeText={address => setAddress(address)}/>
-          <TextInput placeholder='Emergency Contact' onChangeText={emergencyName => setEmergencyName(emergencyName)}/>
-          <TextInput placeholder='Emergency Contact Phone Number' onChangeText={emergencyPhone => setEmergencyPhone(emergencyPhone)}/>
-          <Button 
-            title = "Create Account"
-            onPress = {() => submitHandler(this)}
-          />
-          <Button 
-            title = "Cancel"
-            onPress = {() => navigation.navigate("Log In")}
-          />
+      <View style={globalStyles.loginContainer}>
+          <Text style={globalStyles.titleText2}>Create an Account</Text>
+          <TextInput placeholder='Name' onChangeText={name => setName(name)} style={globalStyles.textInput}/>
+          <TextInput placeholder='Email' onChangeText={email => setEmail(email)} style={globalStyles.textInput}/>
+          <TextInput placeholder='Phone Number' onChangeText={phone => setPhone(phone)} style={globalStyles.textInput}/>
+          <TextInput placeholder='Password' secureTextEntry = {true} onChangeText={password => setPassword(password)} style={globalStyles.textInput}/>
+          <TextInput placeholder='Address' onChangeText={address => setAddress(address)} style={globalStyles.textInput}/>
+          <TextInput placeholder='Emergency Contact' onChangeText={emergencyName => setEmergencyName(emergencyName)} style={globalStyles.textInput}/>
+          <TextInput placeholder='Emergency Contact Phone Number' onChangeText={emergencyPhone => setEmergencyPhone(emergencyPhone)} style={globalStyles.textInput}/>
+          
+          <View style={globalStyles.containerSub}>
+            <View style = {globalStyles.registerButtons}>
+              <Button 
+                title = "Create Account"
+                onPress = {() => submitHandler(this)}
+                color = "white"
+              />
+            </View>
+
+            <View style = {globalStyles.registerButtons}>
+              <Button 
+                title = "Cancel"
+                onPress = {() => navigation.navigate("Log In")}
+                color = "white"
+              />
+            </View>
+          </View>
+          
       </View>
   )
 }
-
-const styles = StyleSheet.create({
-  screen: { 
-    flex: 1, 
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
 
 export {RegisterScreen}
