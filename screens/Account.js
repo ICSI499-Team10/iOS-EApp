@@ -1,5 +1,5 @@
 import React from 'react'; 
-import {View, Button} from 'react-native';
+import {View, Button, Text} from 'react-native';
 import {globalStyles} from '../styles/globalStyles';
 
 const helloName = async () => { 
