@@ -1,15 +1,14 @@
 import React, {useState, useEffect} from 'react'; 
 import { 
   Text, 
-  SafeAreaView, 
-  StyleSheet, 
-  Button, 
+  SafeAreaView,  
   FlatList, 
   RefreshControl, 
   ActivityIndicator,
-  View,  
-} from 'react-native'; 
-
+  View,
+  TouchableOpacity  
+} from 'react-native';
+import {globalStyles} from '../../styles/globalStyles';
 import {fetchAdvisoryFire} from '../../utils/dbFunctions';
 
 const AdvisoryFireScreen = props => { 
@@ -52,17 +51,20 @@ const AdvisoryFireScreen = props => {
     },[])
 
     return (
-      <SafeAreaView>
-        <Button title="Go Back" onPress={() => props.navigation.goBack()}/>
+      <SafeAreaView style={globalStyles.screen}>
         {isLoading ? <ActivityIndicator/> : (
           <SafeAreaView >
-            <Text>Advisory Fire Screen</Text>
             <FlatList 
               style={{paddingBottom: 50}}
               data={data}
               keyExtractor={item => item.incidentId}
               renderItem={({item}) => (
-                <Text onPress={() => getItem(item)}>{item.category + " " + item.title}</Text>
+                <View >
+                  <TouchableOpacity style={globalStyles.item} onPress={() => getItem(item)}>
+                    <Text style={{fontSize:20}}>{item.category}</Text>
+                    <Text style={{fontSize:20}}>{item.title + "..."}</Text>
+                  </TouchableOpacity>
+                </View>
               )}
               ItemSeparatorComponent={ItemSeparatorView}
               scrollEnabled={true}
@@ -79,12 +81,5 @@ const AdvisoryFireScreen = props => {
     )
 }
 
-const styles = StyleSheet.create({
-  screen: { 
-    flex: 1, 
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
 
 export {AdvisoryFireScreen}

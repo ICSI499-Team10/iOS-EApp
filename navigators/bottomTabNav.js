@@ -89,9 +89,10 @@ const BottomTabNavigator = () => {
         <Tab.Navigator>
             <Tab.Screen 
                 name="Advisory" 
-                component={AdvisoryStack} 
+                component={AdvisoryStack}
                 options={{
-                    tabBarIcon: ({size, color}) => (<Icon type="FontAwesome" name={"warning"} color={color} size={size}/>)
+                    tabBarIcon: ({size, color}) => (<Icon type="FontAwesome" name={"warning"} color={color} size={size}/>),
+                    headerShown: false
                 }}
             />
 
@@ -99,7 +100,8 @@ const BottomTabNavigator = () => {
                 name="Alert" 
                 component={AlertStack}
                 options={{
-                    tabBarIcon: ({size, color}) => (<Icon type="FontAwesome" name={"bell-o"} color={color} size={size}/>)
+                    tabBarIcon: ({size, color}) => (<Icon type="FontAwesome" name={"bell-o"} color={color} size={size}/>),
+                    headerShown: false
                 }} 
 
             />
@@ -107,14 +109,16 @@ const BottomTabNavigator = () => {
                 name="Be Ready" 
                 component={BeReadyStack}
                 options={{
-                    tabBarIcon: ({size, color}) => (<Icon type="Ionicons" name={"happy-outline"} color={color} size={size}/>)
+                    tabBarIcon: ({size, color}) => (<Icon type="Ionicons" name={"happy-outline"} color={color} size={size}/>),
+                    headerShown: false
                 }}  
             />
             <Tab.Screen 
                 name="Account" 
                 component={AccountStack}
                 options={{
-                    tabBarIcon: ({size, color}) => (<Icon type="Ionicons" name={"ios-person-circle"} color={color} size={size}/>)
+                    tabBarIcon: ({size, color}) => (<Icon type="Ionicons" name={"ios-person-circle"} color={color} size={size}/>),
+                    headerShown: false
                 }}   
 
             />

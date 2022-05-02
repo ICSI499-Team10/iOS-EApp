@@ -5,7 +5,6 @@ const ContactScreen = props => {
     return (
         <View style={styles.screen}>
             <Text>Contact Us Screen</Text>
-            <Button title="Go Back" onPress={() => props.navigation.goBack()}/>
         </View>   
     )
 }
