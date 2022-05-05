@@ -40,7 +40,7 @@ export const fetchIncidents = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents;`, 
+            `SELECT * FROM incidents ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
