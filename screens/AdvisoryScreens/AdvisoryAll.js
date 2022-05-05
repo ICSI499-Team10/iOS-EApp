@@ -56,7 +56,7 @@ const AdvisoryAllScreen = props => {
 
     const getItem = (item) => { 
       Alert.alert(
-          item.title,
+          item.category,
           item.description
         )
     }
