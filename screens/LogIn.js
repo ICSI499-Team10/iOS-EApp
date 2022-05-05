@@ -58,7 +58,7 @@ const LogInScreen = ({navigation}) => {
               onPress = {() => alert("Not a feature yet")}
               color = "#46AFFF" 
             />
-            <View style = {globalStyles.containerSub}>
+            <View style={globalStyles.containerSub}>
               <View style = {globalStyles.loginButtons}>
                 <Button 
                   title = "Login"
