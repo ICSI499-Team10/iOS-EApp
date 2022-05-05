@@ -16,7 +16,7 @@ const AdvisoryAllScreen = props => {
     const [advisory, setAdvisory] = useState([])
     const advisoryList = []
     const getAdvisory = async () => { 
-      try { 
+      /*try { 
         const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
         const response = await fetch(URI, {
             headers: {
@@ -37,9 +37,18 @@ const AdvisoryAllScreen = props => {
         console.log(error)
       } finally { 
         setLoading(false)
+      }*/
+      fetchAdvisory()
+        .then((dbResult) => { 
+          console.log(dbResult["rows"]["_array"])
+          setData(dbResult["rows"]["_array"])
+          setLoading(false)
+        })
+        .catch(err => { 
+          console.log(err)
+        })
       }
     }
-
     const onRefresh = () => { 
       setAdvisory([])
       getAdvisory()
