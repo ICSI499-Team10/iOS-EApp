@@ -12,14 +12,8 @@ const Stack = createStackNavigator();
 
 const StackBeReadyNavigator = () => { 
     return (
-        <Stack.Navigator>
-            <Stack.Screen 
-                name="Be Ready" 
-                component={BeReadyScreen} 
-                options={{
-                    headerLeft: null
-                }}
-            />
+        <Stack.Navigator screenOptions={{headerShown: false}}>
+            <Stack.Screen name="Be Ready" component={BeReadyScreen} />
             <Stack.Screen name="All" component={BeReadyAllScreen} />
             <Stack.Screen name="Fire" component={BeReadyFireScreen} />
             <Stack.Screen name="Health" component={BeReadyHealthScreen} />

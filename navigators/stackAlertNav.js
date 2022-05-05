@@ -12,14 +12,8 @@ const Stack = createStackNavigator();
 
 const StackAlertNavigator = () => { 
     return (
-        <Stack.Navigator>
-            <Stack.Screen 
-                name="Alert" 
-                component={AlertScreen} 
-                options={{
-                    headerLeft: null
-                }}
-            />
+        <Stack.Navigator screenOptions={{headerShown: false}}>
+            <Stack.Screen name="Alert" component={AlertScreen} />
             <Stack.Screen name="All" component={AlertAllScreen} />
             <Stack.Screen name="Fire" component={AlertFireScreen} />
             <Stack.Screen name="Health" component={AlertHealthScreen} />

@@ -1,19 +1,20 @@
 import React, {useState, useEffect} from 'react'; 
 import { 
   Text, 
-  SafeAreaView,  
+  SafeAreaView, 
+  StyleSheet, 
+  Button, 
   FlatList, 
   RefreshControl, 
   ActivityIndicator,
-  View,
-  TouchableOpacity  
+  View,  
 } from 'react-native'; 
-import {globalStyles} from '../../styles/globalStyles';
-import {fetchAdvisory} from '../../utils/dbFunctions';
 
 const AdvisoryAllScreen = props => { 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
+    const [advisory, setAdvisory] = useState([])
+    const advisoryList = []
     const getAdvisory = async () => { 
       /*try { 
         const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
@@ -37,7 +38,6 @@ const AdvisoryAllScreen = props => {
       } finally { 
         setLoading(false)
       }*/
-      // comment to add 
       fetchAdvisory()
         .then((dbResult) => { 
           console.log(dbResult["rows"]["_array"])
@@ -47,10 +47,10 @@ const AdvisoryAllScreen = props => {
         .catch(err => { 
           console.log(err)
         })
+      }
     }
-
     const onRefresh = () => { 
-      setData([])
+      setAdvisory([])
       getAdvisory()
     }
 
@@ -60,7 +60,13 @@ const AdvisoryAllScreen = props => {
 
     const ItemSeparatorView = () => { 
       return (
-        <View/>
+        <View 
+          style={{
+            height: 1, 
+            width: '100%',
+            backgroundColor: "#607D8B"
+          }}
+        />
       )
     }
 
@@ -69,19 +75,17 @@ const AdvisoryAllScreen = props => {
     },[])
 
     return (
-      <SafeAreaView style={globalStyles.screen}>
+      <SafeAreaView>
+        <Button title="Go Back" onPress={() => props.navigation.goBack()}/>
         {isLoading ? <ActivityIndicator/> : (
           <SafeAreaView >
+            <Text>Advisory All Screen</Text>
             <FlatList 
               style={{paddingBottom: 50}}
-              data={data}
+              data={advisory}
               keyExtractor={item => item.incidentId}
               renderItem={({item}) => (
-                <View >
-                  <TouchableOpacity style={globalStyles.item} onPress={() => getItem(item)}>
-                    <Text style={{fontSize:20}}>{item.title}</Text>
-                  </TouchableOpacity>
-                </View>
+                <Text onPress={() => getItem(item)}>{item.category + " " + item.title}</Text>
               )}
               ItemSeparatorComponent={ItemSeparatorView}
               scrollEnabled={true}
@@ -98,6 +102,12 @@ const AdvisoryAllScreen = props => {
     )
 }
 
-
+const styles = StyleSheet.create({
+  screen: { 
+    flex: 1, 
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})
 
 export {AdvisoryAllScreen}
