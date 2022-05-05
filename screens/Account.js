@@ -20,6 +20,11 @@ const AccountScreen = ({navigation}) => {
         color="#46AFFF" 
         onPress={() => navigation.navigate("About")}
       />
+      <Button
+        title="Login"
+        color="#46AFFF" 
+        onPress={() => navigation.navigate("Login")}
+      />
     </View>
   )
 }
