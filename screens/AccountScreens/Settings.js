@@ -1,10 +1,11 @@
 import React from 'react'; 
 import { Text, View, StyleSheet, Button} from 'react-native'; 
 
-const AboutScreen = props => { 
+const SettingsScreen = props => { 
+  console.log(props)
     return (
         <View style={styles.screen}>
-            <Text>About Us Screen</Text>
+            <Text>Settings Screen</Text>
         </View>   
     )
 }
@@ -17,4 +18,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export {AboutScreen}
+export {SettingsScreen}

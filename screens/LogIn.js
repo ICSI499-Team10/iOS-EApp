@@ -1,6 +1,5 @@
 import React, {useState} from 'react'; 
 import {Text, View, StyleSheet, TextInput, Button} from 'react-native'; 
-import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 import {globalStyles} from '../styles/globalStyles';
 
 const LogInScreen = ({navigation}) => { 
@@ -31,6 +30,7 @@ const LogInScreen = ({navigation}) => {
           alert("Incorrect email or password. Try again!")
         } else { 
           if(dataJSON["token"]){ 
+            console.log(dataJSON["name"])
             console.log("navigating to bottom tabs")
             navigation.navigate("Bottom Tab")
           }

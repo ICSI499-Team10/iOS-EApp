@@ -51,7 +51,29 @@ export const globalStyles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-evenly",
         padding: 5
-    }
+    },
+    item: {
+        borderColor: "black",
+        borderWidth: 1,
+        backgroundColor: "#FAFAFA",
+        width: "95%",
+        height: 40,
+        marginLeft: 10,
+        marginTop: 5,
+        justifyContent:"space-between",
+        flexDirection: "row",
+        paddingLeft: 10,
+        paddingRight: 10
+      },
+      scrollText:{
+        fontSize: 20
+      },
+      scrollItem:{
+        justifyContent:"space-between",
+        flexDirection: "row",
+        paddingLeft: 10,
+        paddingRight: 20
+      }
 
 });
 
