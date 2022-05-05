@@ -6,7 +6,8 @@ import {
   RefreshControl, 
   ActivityIndicator,
   View,
-  TouchableOpacity  
+  TouchableOpacity,
+  Alert  
 } from 'react-native'; 
 import {globalStyles} from '../../styles/globalStyles'; 
 import {fetchBeReadyHealth} from '../../utils/dbFunctions'
@@ -32,7 +33,10 @@ const BeReadyHealthScreen = props => {
     }
 
     const getItem = (item) => { 
-      alert('Description: ' + item.description)
+      Alert.alert(
+        item.category,
+        item.description
+      )
     }
 
     const ItemSeparatorView = () => { 

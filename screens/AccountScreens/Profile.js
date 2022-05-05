@@ -99,13 +99,6 @@ const ProfileScreen = props => {
                         color = "white"
                     />
                 </View>
-                <View style = {globalStyles.registerButtons}>
-                    <Button
-                        title="Go Back"
-                        onPress={() => props.navigation.goBack()}
-                        color = "white"
-                    />
-                </View>
             </View>
         </View>
     )
