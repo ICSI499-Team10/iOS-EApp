@@ -1,40 +1,47 @@
-import React from 'react'; 
-import {View, Button} from 'react-native'; 
+import React from 'react';
+import {View, Button, Image, TouchableOpacity} from 'react-native'; 
 import {globalStyles} from '../styles/globalStyles';
 
 const AlertScreen = ({navigation}) => { 
   return (
     <View style={globalStyles.stackNavStyle}>
-      <Button
-        title="All"
-        color="#46AFFF" 
-        onPress={() => navigation.navigate("All")}
+      <TouchableOpacity onPress={() => navigation.navigate("All")}>
+        <Image
+          source={require('../icons/EAPP_Icons/bell_white.png')}
+          style={globalStyles.imageButton}
         />
-      <Button
-        title="Fire"
-        color="#46AFFF" 
-        onPress={() => navigation.navigate("Fire")}
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Fire")}>
+        <Image
+          source={require('../icons/EAPP_Icons/fire_tab.png')}
+          style={globalStyles.imageButton}
         />
-      <Button
-        title="Health"
-        color="#46AFFF" 
-        onPress={() => navigation.navigate("Health")}
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Health")}>
+        <Image
+          source={require('../icons/EAPP_Icons/medical_tab.png')}
+          style={globalStyles.imageButton}
         />
-      <Button
-        title="Roads"
-        color="#46AFFF" 
-        onPress={() => navigation.navigate("Roads")}
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Roads")}>
+        <Image
+          source={require('../icons/EAPP_Icons/road_tab.png')}
+          style={globalStyles.imageButton}
         />
-      <Button
-        title="Weather"
-        color="#46AFFF" 
-        onPress={() => navigation.navigate("Weather")}
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Weather")}>
+        <Image
+          source={require('../icons/EAPP_Icons/weather_tab.png')}
+          style={globalStyles.imageButton}
         />
-      <Button
-        title="Other"
-        color="#46AFFF" 
-        onPress={() => navigation.navigate("Other")}
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Other")}>
+        <Image
+          source={require('../icons/EAPP_Icons/form_white.png')}
+          style={globalStyles.imageButton}
+          //resizeMode= "contain"
         />
+      </TouchableOpacity>
     </View>
   )
 }

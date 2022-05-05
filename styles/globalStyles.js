@@ -77,6 +77,15 @@ export const globalStyles = StyleSheet.create({
         flexDirection: "row",
         paddingLeft: 10,
         paddingRight: 20
+      },
+      imageButton:{
+        width: 50,
+        height: 50,
+        backgroundColor: "#46AFFF",
+        borderWidth: 2,
+        borderRadius: 9,
+        borderColor: "#46AFFF",
+        resizeMode: "contain"
       }
 
 });
