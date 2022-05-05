@@ -1,5 +1,6 @@
 import React, {useState} from 'react'; 
 import {Text, View, StyleSheet, TextInput, Button} from 'react-native'; 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {globalStyles} from '../styles/globalStyles';
 
 const LogInScreen = ({navigation}) => { 
@@ -30,8 +31,9 @@ const LogInScreen = ({navigation}) => {
           alert("Incorrect email or password. Try again!")
         } else { 
           if(dataJSON["token"]){ 
-            console.log(dataJSON["name"])
-            console.log("navigating to bottom tabs")
+            //console.log(dataJSON["name"])
+            //console.log("navigating to bottom tabs")
+            AsyncStorage.setItem('token', dataJSON["token"])
             navigation.navigate("Bottom Tab")
           }
         }
