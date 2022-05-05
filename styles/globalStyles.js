@@ -81,7 +81,7 @@ export const globalStyles = StyleSheet.create({
       imageButton:{
         width: 65,
         height: 65,
-        marginTop: "50%",
+        marginTop: "30%",
         backgroundColor: "#46AFFF",
         borderWidth: 2,
         borderRadius: 9,
@@ -89,6 +89,14 @@ export const globalStyles = StyleSheet.create({
         justifyContent: "space-evenly",
         borderColor: "#46AFFF",
         resizeMode: "contain"
+      },
+      imageButtonText:{
+        marginTop: "10%",
+        fontSize: 15,
+        justifyContent: "center",
+        textAlign: "center",
+        color: "#46AFFF",
+        fontWeight: "bold"
       }
 
 });
