@@ -5,7 +5,8 @@ import {globalStyles} from '../styles/globalStyles';
 const AlertScreen = ({navigation}) => { 
   return (
     <View style={globalStyles.stackNavStyle}>
-      <TouchableOpacity onPress={() => navigation.navigate("All")}>
+        <View>
+        <TouchableOpacity onPress={() => navigation.navigate("All")}>
         <Image
           source={require('../icons/EAPP_Icons/bell_white.png')}
           style={globalStyles.imageButton}
@@ -23,6 +24,9 @@ const AlertScreen = ({navigation}) => {
           style={globalStyles.imageButton}
         />
       </TouchableOpacity>
+      </View>
+
+      <View>
       <TouchableOpacity onPress={() => navigation.navigate("Roads")}>
         <Image
           source={require('../icons/EAPP_Icons/road_tab.png')}
@@ -42,7 +46,8 @@ const AlertScreen = ({navigation}) => {
           //resizeMode= "contain"
         />
       </TouchableOpacity>
-    </View>
+      </View>
+      </View>
   )
 }
 

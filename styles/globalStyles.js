@@ -79,11 +79,14 @@ export const globalStyles = StyleSheet.create({
         paddingRight: 20
       },
       imageButton:{
-        width: 50,
-        height: 50,
+        width: 65,
+        height: 65,
+        marginTop: "50%",
         backgroundColor: "#46AFFF",
         borderWidth: 2,
         borderRadius: 9,
+        justifyContent: "center",
+        justifyContent: "space-evenly",
         borderColor: "#46AFFF",
         resizeMode: "contain"
       }
