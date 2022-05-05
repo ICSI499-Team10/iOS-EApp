@@ -92,8 +92,8 @@ const BottomTabNavigator = () => {
 
     const testMethod = async () => {
         console.log("setInterval works :)");
-        const token = await AsyncStorage.getItem('token')
-        console.log(token)
+        //const token = await AsyncStorage.getItem('token')
+        //console.log(token)
     }
 
     useEffect(() => { 
