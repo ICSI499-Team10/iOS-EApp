@@ -79,6 +79,7 @@ const AdvisoryAllScreen = props => {
                 <View >
                   <TouchableOpacity style={globalStyles.item} onPress={() => getItem(item)}>
                     <Text style={{fontSize:20}}>{item.title}</Text>
+                    <Text style={{fontSize:15}}>{item.timeOfEvent}</Text>
                   </TouchableOpacity>
                 </View>
               )}

@@ -6,7 +6,7 @@ export const init = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            'CREATE TABLE IF NOT EXISTS incidents (incidentId INTEGER PRIMARY KEY NOT NULL, description TEXT NOT NULL, category TEXT NOT NULL, incidentTypeId INTEGER NOT NULL, source TEXT NOT NULL, title TEXT NOT NULL);', 
+            'CREATE TABLE IF NOT EXISTS incidents (incidentId INTEGER PRIMARY KEY NOT NULL, description TEXT NOT NULL, category TEXT NOT NULL, incidentTypeId INTEGER NOT NULL, source TEXT NOT NULL, title TEXT NOT NULL, timeOfEvent TEXT NOT NULL, severityTypeId INTEGER NOT NULL);', 
             [], 
             () => {
                 resolve()
@@ -19,12 +19,12 @@ export const init = () => {
     return promise
 }
 
-export const insertIncident = (incidentId, description, category, incidentTypeId, source, title) => { 
+export const insertIncident = (incidentId, description, category, incidentTypeId, source, title, timeOfEvent, severityTypeId) => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `INSERT INTO incidents (incidentId, description, category, incidentTypeId, source, title) VALUES (?, ?, ?, ?, ?, ?);`, 
-            [incidentId, description, category, incidentTypeId, source, title], 
+            `INSERT INTO incidents (incidentId, description, category, incidentTypeId, source, title, timeOfEvent, severityTypeId) VALUES (?, ?, ?, ?, ?, ?, ?, ?);`, 
+            [incidentId, description, category, incidentTypeId, source, title, timeOfEvent, severityTypeId], 
             (_,result) => {
                 resolve(result)
             }, 
@@ -57,7 +57,7 @@ export const deleteIncidents = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `DELETE FROM incidents;`, 
+            `DROP TABLE IF EXISTS incidents;`, 
             [], 
             (_,result) => {
                 resolve(result)

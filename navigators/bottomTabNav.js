@@ -37,20 +37,22 @@ const BottomTabNavigator = () => {
             } else { 
                 console.log(data.length)
                 // initialize the database if it is not initialized 
+                deleteIncidents()
+                    .then((dbResult) => { 
+                        console.log(dbResult)
+                        console.log("table was dropped")
+                    })
+                    .catch(err => { 
+                        console.log(err)
+                        console.log("table not dropped")
+                    })
+                    
                 init()
                     .then(() => { 
                         console.log("initialized database")
                     })
                     .catch(err => { 
                         console.log("initializing database failed")
-                        console.log(err)
-                    })
-                
-                deleteIncidents()
-                    .then((dbResult) => { 
-                        console.log(dbResult)
-                    })
-                    .catch(err => { 
                         console.log(err)
                     })
                 
@@ -61,7 +63,9 @@ const BottomTabNavigator = () => {
                     incidentTypeId = data[i]["incidentTypeId"]
                     source = data[i]["source"]
                     title = data[i]["title"]
-                    insertIncident(incidentId, description, category, incidentTypeId, source, title)
+                    timeOfEvent = data[i]["timeOfEvent"]
+                    severityTypeId = data[i]["severityTypeId"]
+                    insertIncident(incidentId, description, category, incidentTypeId, source, title, timeOfEvent, severityTypeId)
                         .then((dbResult) => { 
                             //console.log(dbResult)
                         })
@@ -69,6 +73,7 @@ const BottomTabNavigator = () => {
                             console.log(err)
                         })
                 }
+
                 fetchIncidents()
                     .then((dbResult) => { 
                         //console.log(dbResult)
