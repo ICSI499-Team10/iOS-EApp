@@ -34,6 +34,7 @@ const LogInScreen = ({navigation}) => {
             //console.log(dataJSON["name"])
             //console.log("navigating to bottom tabs")
             AsyncStorage.setItem('token', dataJSON["token"])
+            AsyncStorage.setItem('userId', dataJSON["userId"].toString())
             navigation.navigate("Bottom Tab")
           }
         }

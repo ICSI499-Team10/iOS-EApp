@@ -35,7 +35,7 @@ const RegisterScreen = ({navigation}) => {
 
   const submitHandler = async () => {
     try {
-      if(!name || !email || !password || !phone || !address || !emergencyName || !emergencyPhone) {
+      if(!name || !email || !password || !phone) {
         alert("Missing required information! Please fill in the missing information");
       } else { 
         const URI = "http://eapp-test.arcc.albany.edu/publish/CreateAccount";
