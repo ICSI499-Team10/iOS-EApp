@@ -1,33 +1,47 @@
 import React, {useState, useEffect} from 'react'; 
 import { 
   Text, 
-  SafeAreaView,   
+  SafeAreaView, 
+  StyleSheet, 
+  Button, 
   FlatList, 
   RefreshControl, 
   ActivityIndicator,
-  View,
-  TouchableOpacity  
+  View,  
 } from 'react-native'; 
-import {globalStyles} from '../../styles/globalStyles';
-import {fetchBeReady} from '../../utils/dbFunctions'
 
 const BeReadyAllScreen = props => { 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
+    const [beReady, setBeReady] = useState([])
+    const beReadyList = []
     const getBeReady = async () => { 
-      fetchBeReady()
-        .then((dbResult) => { 
-          console.log(dbResult["rows"]["_array"][0])
-          setData(dbResult["rows"]["_array"])
-          setLoading(false)
+      try { 
+        const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
+        const response = await fetch(URI, {
+            headers: {
+                AuthToken: '4xm7HKg@SY$Q@2BeA3&9X4Ck^8EX$@mM', 
+                RecentDate: null
+            },
         })
-        .catch(err => { 
-          console.log(err)
-        })
+        const dataJSON = await response.json() 
+        setData(dataJSON["incidents"])
+        for(let i = 0; i < data.length; i++){ 
+          if(data[i]["category"] === "BeReady"){ 
+            beReadyList.push(data[i])
+          }
+        }
+        console.log(beReadyList.length)
+        setBeReady(beReadyList)
+      } catch (error){ 
+        console.log(error)
+      } finally { 
+        setLoading(false)
+      }
     }
 
     const onRefresh = () => { 
-      setData([])
+      setBeReady([])
       getBeReady()
     }
 
@@ -37,7 +51,13 @@ const BeReadyAllScreen = props => {
 
     const ItemSeparatorView = () => { 
       return (
-        <View/>
+        <View 
+          style={{
+            height: 1, 
+            width: '100%',
+            backgroundColor: "#607D8B"
+          }}
+        />
       )
     }
 
@@ -46,20 +66,17 @@ const BeReadyAllScreen = props => {
     },[])
 
     return (
-      <SafeAreaView style={globalStyles.screen}>
+      <SafeAreaView>
+        <Button title="Go Back" onPress={() => props.navigation.goBack()}/>
         {isLoading ? <ActivityIndicator/> : (
           <SafeAreaView >
+            <Text>BeReadyAll Screen</Text>
             <FlatList 
               style={{paddingBottom: 50}}
-              data={data}
+              data={beReady}
               keyExtractor={item => item.incidentId}
               renderItem={({item}) => (
-                <View>
-                  <TouchableOpacity style={globalStyles.item} onPress={() => getItem(item)}>
-                    <Text style={{fontSize:20}}>{item.category}</Text>
-                    <Text style={{fontSize:20}}>{item.title + "..."}</Text>
-                  </TouchableOpacity>
-                </View>
+                <Text onPress={() => getItem(item)}>{item.category + " " + item.title}</Text>
               )}
               ItemSeparatorComponent={ItemSeparatorView}
               scrollEnabled={true}
@@ -76,5 +93,12 @@ const BeReadyAllScreen = props => {
     )
 }
 
+const styles = StyleSheet.create({
+  screen: { 
+    flex: 1, 
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})
 
 export {BeReadyAllScreen}
