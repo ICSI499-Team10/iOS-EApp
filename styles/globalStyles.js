@@ -2,7 +2,11 @@ import {StyleSheet} from "react-native";
 
 export const globalStyles = StyleSheet.create({
     stackNavStyle:{
-        alignItems: "flex-start",
+        fontSize: 70,
+        marginTop: "50%",
+        justifyContent: 'center',
+        justifyContent: 'space-evenly',
+        alignItems: "center",
         flexDirection: "row"
     },
 
