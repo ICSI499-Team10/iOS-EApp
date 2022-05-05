@@ -74,7 +74,7 @@ export const fetchBeReady = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'BeReady';`, 
+            `SELECT * FROM incidents WHERE category = 'BeReady' ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -91,7 +91,7 @@ export const fetchAlerts = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'Alerts';`, 
+            `SELECT * FROM incidents WHERE category = 'Alerts' ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -108,7 +108,7 @@ export const fetchAdvisory = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'Advisory';`, 
+            `SELECT * FROM incidents WHERE category = 'Advisory' ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -125,7 +125,7 @@ export const fetchAdvisoryFire = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'Advisory' AND incidentTypeId = 2;`, 
+            `SELECT * FROM incidents WHERE category = 'Advisory' AND incidentTypeId = 2 ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -142,7 +142,7 @@ export const fetchAdvisoryHealth = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'Advisory' AND incidentTypeId = 5;`, 
+            `SELECT * FROM incidents WHERE category = 'Advisory' AND incidentTypeId = 5 ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -159,7 +159,7 @@ export const fetchAdvisoryOther = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'Advisory' AND incidentTypeId = 6;`, 
+            `SELECT * FROM incidents WHERE category = 'Advisory' AND incidentTypeId = 6 ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -176,7 +176,7 @@ export const fetchAdvisoryRoads = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'Advisory' AND incidentTypeId = 4;`, 
+            `SELECT * FROM incidents WHERE category = 'Advisory' AND incidentTypeId = 4 ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -193,7 +193,7 @@ export const fetchAdvisoryWeather = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'Advisory' AND incidentTypeId = 1;`, 
+            `SELECT * FROM incidents WHERE category = 'Advisory' AND incidentTypeId = 1 ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -210,7 +210,7 @@ export const fetchAlertsFire = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'Alerts' AND incidentTypeId = 2;`, 
+            `SELECT * FROM incidents WHERE category = 'Alerts' AND incidentTypeId = 2 ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -227,7 +227,7 @@ export const fetchAlertsHealth = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'Alerts' AND incidentTypeId = 5;`, 
+            `SELECT * FROM incidents WHERE category = 'Alerts' AND incidentTypeId = 5 ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -244,7 +244,7 @@ export const fetchAlertsOther = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'Alerts' AND incidentTypeId = 6;`, 
+            `SELECT * FROM incidents WHERE category = 'Alerts' AND incidentTypeId = 6 ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -261,7 +261,7 @@ export const fetchAlertsRoads = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'Alerts' AND incidentTypeId = 4;`, 
+            `SELECT * FROM incidents WHERE category = 'Alerts' AND incidentTypeId = 4 ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -278,7 +278,7 @@ export const fetchAlertsWeather = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'Alerts' AND incidentTypeId = 1;`, 
+            `SELECT * FROM incidents WHERE category = 'Alerts' AND incidentTypeId = 1 ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -295,7 +295,7 @@ export const fetchBeReadyFire = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'BeReady' AND incidentTypeId = 2;`, 
+            `SELECT * FROM incidents WHERE category = 'BeReady' AND incidentTypeId = 2 ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -312,7 +312,7 @@ export const fetchBeReadyHealth = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'BeReady' AND incidentTypeId = 5;`, 
+            `SELECT * FROM incidents WHERE category = 'BeReady' AND incidentTypeId = 5 ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -329,7 +329,7 @@ export const fetchBeReadyOther = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'BeReady' AND incidentTypeId = 5;`, 
+            `SELECT * FROM incidents WHERE category = 'BeReady' AND incidentTypeId = 5 ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -346,7 +346,7 @@ export const fetchBeReadyRoads = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'BeReady' AND incidentTypeId = 4;`, 
+            `SELECT * FROM incidents WHERE category = 'BeReady' AND incidentTypeId = 4 ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
@@ -363,7 +363,7 @@ export const fetchBeReadyWeather = () => {
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
             tx.executeSql(
-            `SELECT * FROM incidents WHERE category = 'BeReady' AND incidentTypeId = 1;`, 
+            `SELECT * FROM incidents WHERE category = 'BeReady' AND incidentTypeId = 1 ORDER BY timeOfEvent DESC;`, 
             [], 
             (_,result) => {
                 resolve(result)
