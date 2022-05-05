@@ -17,15 +17,23 @@ const ProfileScreen = props => {
     const [userId, setUserId] = useState('')
     
     const getToken = async () => { 
-        const asyncToken = await AsyncStorage.getItem('token')
-        console.log(asyncToken)
-        setToken(asyncToken)
+        try { 
+            const asyncToken = await AsyncStorage.getItem('token')
+            console.log(asyncToken)
+            setToken(asyncToken)
+        } catch(error) { 
+            console.log(error)
+        }
     }
     
     const getUserId = async () => { 
-        const asyncUserId = await AsyncStorage.getItem('userId')
-        console.log(asyncUserId)
-        setUserId(asyncUserId)
+        try { 
+            const asyncUserId = await AsyncStorage.getItem('userId')
+            console.log(asyncUserId)
+            setUserId(asyncUserId)
+        } catch(error) { 
+            console.log(error)
+        }
     }
 
     const updateReq = {
