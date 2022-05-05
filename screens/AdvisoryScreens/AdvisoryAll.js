@@ -6,7 +6,8 @@ import {
   RefreshControl, 
   ActivityIndicator,
   View,
-  TouchableOpacity  
+  TouchableOpacity,
+  Alert  
 } from 'react-native'; 
 import {globalStyles} from '../../styles/globalStyles';
 import {fetchAdvisory} from '../../utils/dbFunctions';
@@ -54,7 +55,10 @@ const AdvisoryAllScreen = props => {
     }
 
     const getItem = (item) => { 
-      alert('Description: ' + item.description)
+      Alert.alert(
+          item.title,
+          item.description
+        )
     }
 
     const ItemSeparatorView = () => { 
