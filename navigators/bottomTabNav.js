@@ -20,6 +20,7 @@ const BottomTabNavigator = () => {
     var incidentTypeId = 0
     var source = ""
     var title = ""
+
     const getIncidents = async () => { 
         try{ 
             const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
@@ -87,9 +88,20 @@ const BottomTabNavigator = () => {
         }
     }
 
+    const testMethod = async () => {
+        console.log("setInterval works :)");
+    }
+
     useEffect(() => { 
         getIncidents()
+        if(refresh == false) {
+            setInterval(() => {
+                testMethod()
+            }, 10000)
+            // 600000 ms in 10 mins
+        }
     },[refresh])
+
     return(
         <Tab.Navigator>
             <Tab.Screen 
