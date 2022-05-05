@@ -1,6 +1,5 @@
 import React from 'react'; 
-import { Text, View, StyleSheet, Button} from 'react-native'; 
-import { Linking } from 'react-native';
+import { Text, View, StyleSheet, Button, Linking } from 'react-native';
 
 const ContactScreen = props => { 
     return (
@@ -11,7 +10,6 @@ const ContactScreen = props => {
               title = "EApp Issue Report"
               onPress = {() => Linking.openURL("https://gitreports.com/issue/UbiNet-Research/eapp")}
             />
-            <Button title="Go Back" onPress={() => props.navigation.goBack()}/>
         </View>   
     )
 }

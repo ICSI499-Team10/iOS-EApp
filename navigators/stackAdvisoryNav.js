@@ -12,9 +12,15 @@ const Stack = createStackNavigator();
 
 const StackAdvisoryNavigator = () => { 
     return (
-        <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="Advisory" component={AdvisoryScreen} />
-            <Stack.Screen name="All" component={AdvisoryAllScreen} />
+        <Stack.Navigator>
+            <Stack.Screen 
+                name="Advisory" 
+                component={AdvisoryScreen}
+                options={{
+                    headerLeft: null,
+                }}
+            />
+            <Stack.Screen name="All" component={AdvisoryAllScreen}/>
             <Stack.Screen name="Fire" component={AdvisoryFireScreen} />
             <Stack.Screen name="Health" component={AdvisoryHealthScreen} />
             <Stack.Screen name="Roads" component={AdvisoryRoadsScreen} />

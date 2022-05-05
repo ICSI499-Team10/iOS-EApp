@@ -6,7 +6,6 @@ const SettingsScreen = props => {
     return (
         <View style={styles.screen}>
             <Text>Settings Screen</Text>
-            <Button title="Go Back" onPress={() => props.navigation.goBack()}/>
         </View>   
     )
 }
