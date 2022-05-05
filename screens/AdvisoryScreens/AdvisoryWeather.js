@@ -6,7 +6,8 @@ import {
   RefreshControl, 
   ActivityIndicator,
   View,
-  TouchableOpacity  
+  TouchableOpacity,
+  Alert 
 } from 'react-native'; 
 import {globalStyles} from '../../styles/globalStyles';
 import {fetchAdvisoryWeather} from '../../utils/dbFunctions';
@@ -31,18 +32,15 @@ const AdvisoryWeatherScreen = props => {
   }
 
   const getItem = (item) => { 
-    alert('Description: ' + item.description)
+    Alert.alert(
+      item.category,
+      item.description
+    )
   }
 
   const ItemSeparatorView = () => { 
     return (
-      <View 
-        style={{
-          height: 1, 
-          width: '100%',
-          backgroundColor: "#607D8B"
-        }}
-      />
+      <View/>
     )
   }
 
