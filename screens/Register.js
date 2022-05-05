@@ -3,14 +3,14 @@ import { Text, View, StyleSheet, TextInput, Button} from 'react-native';
 import {globalStyles} from '../styles/globalStyles';
 
 const RegisterScreen = ({navigation}) => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [mac, setMAC] = useState('')
-  const [password, setPassword] = useState('')
-  const [address, setAddress] = useState('')
-  const [phone, setPhone] = useState('')
-  const [emergencyName, setEmergencyName] = useState('')
-  const [emergencyPhone, setEmergencyPhone] = useState('')
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [mac, setMAC] = useState('');
+  const [password, setPassword] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
+  const [emergencyName, setEmergencyName] = useState('');
+  const [emergencyPhone, setEmergencyPhone] = useState('');
 
   const req = {
     method: "POST",
@@ -35,7 +35,7 @@ const RegisterScreen = ({navigation}) => {
 
   const submitHandler = async () => {
     try {
-      if(!name || !email || !password || !phone || !address || !emergencyName || !emergencyPhone) {
+      if(!name || !email || !password || !phone) {
         alert("Missing required information! Please fill in the missing information");
       } else { 
         const URI = "http://eapp-test.arcc.albany.edu/publish/CreateAccount";
@@ -79,6 +79,6 @@ const RegisterScreen = ({navigation}) => {
       </View>
     </View>
   )
-}
+};
 
 export {RegisterScreen}

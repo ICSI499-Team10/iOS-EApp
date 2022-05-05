@@ -4,9 +4,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {globalStyles} from '../styles/globalStyles';
 
 const LogInScreen = ({navigation}) => { 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [mac, setMAC] = useState('')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [mac, setMAC] = useState('');
 
     const req = {
       method: "POST", 
@@ -19,7 +19,7 @@ const LogInScreen = ({navigation}) => {
         "password": password,
         "mac": '3c:06:30:38:b6:14'
       })
-    }
+    };
 
     const submitHandler = async () => { 
       try { 
@@ -34,13 +34,15 @@ const LogInScreen = ({navigation}) => {
             //console.log(dataJSON["name"])
             //console.log("navigating to bottom tabs")
             AsyncStorage.setItem('token', dataJSON["token"])
+            AsyncStorage.setItem('userId', dataJSON["userId"].toString())
             navigation.navigate("Bottom Tab")
           }
         }
       } catch(error) { 
         console.log(error)
       }
-    }
+    };
+
     return (
         <View style={globalStyles.loginContainer}>
             <Text style = {globalStyles.titleText}>Log In</Text>
@@ -78,6 +80,6 @@ const LogInScreen = ({navigation}) => {
             </View>
         </View>   
     )
-}
+};
 
 export {LogInScreen}
