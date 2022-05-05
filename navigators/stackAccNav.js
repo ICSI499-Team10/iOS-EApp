@@ -19,6 +19,7 @@ const StackAccNavigator = () => {
                     headerLeft: null
                 }} 
             />
+            <Stack.Screen name="My Profile" component={ProfileScreen} />
             <Stack.Screen name="Settings" component={SettingsScreen} />
             <Stack.Screen name="Contact" component={ContactScreen} />
             <Stack.Screen name="About" component={AboutScreen} />
