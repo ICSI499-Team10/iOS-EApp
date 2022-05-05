@@ -37,6 +37,7 @@ const AdvisoryAllScreen = props => {
       } finally { 
         setLoading(false)
       }*/
+      // comment to add 
       fetchAdvisory()
         .then((dbResult) => { 
           console.log(dbResult["rows"]["_array"])
