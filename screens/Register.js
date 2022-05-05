@@ -35,14 +35,18 @@ const RegisterScreen = ({navigation}) => {
 
   const submitHandler = async () => {
     try {
-      const URI = "http://eapp-test.arcc.albany.edu/publish/CreateAccount";
-      const response = await fetch(URI, req);
-      const dataJSON = await response.json();
-      console.log(dataJSON); 
+      if(!name || !email || !password || !phone || !address || !emergencyName || !emergencyPhone) {
+        alert("Missing required information! Please fill in the missing information");
+      } else { 
+        const URI = "http://eapp-test.arcc.albany.edu/publish/CreateAccount";
+        const response = await fetch(URI, req);
+        const dataJSON = await response.json();
+        console.log(dataJSON);
+        navigation.navigate("Log In");
+      }
     } catch(error) {
       console.log(error);
     }
-    navigation.navigate("Log In");
   };
 
   return (
