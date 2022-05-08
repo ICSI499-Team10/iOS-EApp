@@ -8,6 +8,7 @@ import BeReadyStack from '../navigators/stackBeReadyNav';
 import AccountStack from '../navigators/stackAccNav';
 
 import {init, insertIncident, fetchIncidents, deleteIncidents} from '.././utils/dbFunctions'
+import moment from 'moment';
 
 
 const Tab = createBottomTabNavigator(); 
@@ -90,6 +91,8 @@ const BottomTabNavigator = () => {
     }
 
     const testMethod = async () => {
+        const formatdate = moment("2021-07-12T13:14:44").format("ddd MMM EE HH:mm:ss [EDT] yyyy");
+        console.log(formatdate);
         console.log("setInterval works :)");
     }
 
