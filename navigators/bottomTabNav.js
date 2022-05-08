@@ -9,7 +9,6 @@ import AccountStack from '../navigators/stackAccNav';
 
 import {init, insertIncident, fetchIncidents, deleteIncidents} from '.././utils/dbFunctions'
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Tab = createBottomTabNavigator(); 
 
@@ -77,13 +76,13 @@ const BottomTabNavigator = () => {
                         })
                 }
 
-                fetchIncidents()
+                /*fetchIncidents()
                     .then((dbResult) => { 
                         //console.log(dbResult)
                     })
                     .catch(err => { 
                         console.log(err)
-                    })
+                    })*/
             }
         } catch (error) { 
             console.log(error)
@@ -92,8 +91,6 @@ const BottomTabNavigator = () => {
 
     const testMethod = async () => {
         console.log("setInterval works :)");
-        //const token = await AsyncStorage.getItem('token')
-        //console.log(token)
     }
 
     useEffect(() => { 
