@@ -47,12 +47,14 @@ const LogInScreen = ({navigation}) => {
         <View style={globalStyles.loginContainer}>
             <Text style = {globalStyles.titleText}>Log In</Text>
             <TextInput 
-              placeholder='Email' 
+              placeholder="Email"
+              placeholderTextColor={"#a1a1a1"}
               onChangeText={name => setEmail(name)}
               style = {globalStyles.textInput}
             />
             <TextInput 
               placeholder='Password' 
+              placeholderTextColor={"#a1a1a1"}
               secureTextEntry = {true} 
               onChangeText={password => setPassword(password)}
               style = {globalStyles.textInput}

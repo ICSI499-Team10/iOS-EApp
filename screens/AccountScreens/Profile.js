@@ -83,13 +83,13 @@ const ProfileScreen = props => {
     return (
         <View style={globalStyles.loginContainer}>
             <Text style={globalStyles.titleText2}>Update User Information</Text>
-            <TextInput placeholder='Name' onChangeText={name => setName(name)} style={globalStyles.textInput}/>
-            <TextInput placeholder='Email' onChangeText={email => setEmail(email)} style={globalStyles.textInput}/>
-            <TextInput placeholder='Phone Number' onChangeText={phone => setPhone(phone)} style={globalStyles.textInput}/>
-            <TextInput placeholder='Password' secureTextEntry = {true} onChangeText={password => setPassword(password)} style={globalStyles.textInput}/>
-            <TextInput placeholder='Address' onChangeText={address => setAddress(address)} style={globalStyles.textInput}/>
-            <TextInput placeholder='Emergency Contact' onChangeText={emergencyName => setEmergencyName(emergencyName)} style={globalStyles.textInput}/>
-            <TextInput placeholder='Emergency Contact Phone Number' onChangeText={emergencyPhone => setEmergencyPhone(emergencyPhone)} style={globalStyles.textInput}/>
+            <TextInput placeholder='Name' placeholderTextColor={"#a1a1a1"} onChangeText={name => setName(name)} style={globalStyles.textInput}/>
+            <TextInput placeholder='Email' placeholderTextColor={"#a1a1a1"} onChangeText={email => setEmail(email)} style={globalStyles.textInput}/>
+            <TextInput placeholder='Phone Number' placeholderTextColor={"#a1a1a1"} onChangeText={phone => setPhone(phone)} style={globalStyles.textInput}/>
+            <TextInput placeholder='Password' placeholderTextColor={"#a1a1a1"} secureTextEntry = {true} onChangeText={password => setPassword(password)} style={globalStyles.textInput}/>
+            <TextInput placeholder='Address' placeholderTextColor={"#a1a1a1"} onChangeText={address => setAddress(address)} style={globalStyles.textInput}/>
+            <TextInput placeholder='Emergency Contact' placeholderTextColor={"#a1a1a1"} onChangeText={emergencyName => setEmergencyName(emergencyName)} style={globalStyles.textInput}/>
+            <TextInput placeholder='Emergency Contact Phone Number' placeholderTextColor={"#a1a1a1"} onChangeText={emergencyPhone => setEmergencyPhone(emergencyPhone)} style={globalStyles.textInput}/>
             
             <View style={globalStyles.containerSub}>
                 <View style = {globalStyles.registerButtons}>
