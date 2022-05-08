@@ -1,1 +1,0 @@
-export const FONT_SIZE = "medium";
