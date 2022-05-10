@@ -1,17 +1,15 @@
 import React from 'react'
-
 import {createStackNavigator} from '@react-navigation/stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {LogInScreen} from "../screens/LogIn"        // Import login screen
+import {RegisterScreen} from "../screens/Register"      // Import register screen
+import {BottomTabNavigator} from '../navigators/bottomTabNav';      // Import bottom tab
 
-import {NavigationContainer} from '@react-navigation/native';
-import {LogInScreen} from "../screens/LogIn"
-import {RegisterScreen} from "../screens/Register"
-import BottomTabNavigator from '../navigators/bottomTabNav';
+const Stack = createStackNavigator();       // Creates navigator
 
-
-
-const Stack = createStackNavigator();
-
+/**
+ * Creates the navgiator for Login and Register.
+ * @returns Navigator path for Login and Register functionality.
+ */
 const LoginNavigator = () =>{
     return(
         <Stack.Navigator screenOptions={{headerShown: false}}>

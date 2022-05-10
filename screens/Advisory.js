@@ -9,7 +9,7 @@ import {globalStyles} from '../styles/globalStyles';    // Import of style sheet
  */
 const AdvisoryScreen = ({navigation}) => {
   return (
-    // View contains icon buttons that navigate from Advisory screen to its subcategories
+    // View contains icon buttons that navigate from the Advisory tab screen to its subcategories
     <View style={globalStyles.stackNavStyle}>
       <View>
         <TouchableOpacity onPress={() => navigation.navigate("All")}>
@@ -46,6 +46,7 @@ const AdvisoryScreen = ({navigation}) => {
           />
           <Text style = {globalStyles.imageButtonText}> Roads </Text>
         </TouchableOpacity>
+
         <TouchableOpacity onPress={() => navigation.navigate("Weather")}>
           <Image
             source={require('../icons/EAPP_Icons/weather_tab.png')}
@@ -53,6 +54,7 @@ const AdvisoryScreen = ({navigation}) => {
           />
           <Text style = {globalStyles.imageButtonText}> Weather </Text>
         </TouchableOpacity>
+
         <TouchableOpacity onPress={() => navigation.navigate("Other")}>
           <Image
             source={require('../icons/EAPP_Icons/form_white.png')}

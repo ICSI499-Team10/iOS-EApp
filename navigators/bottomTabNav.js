@@ -2,17 +2,21 @@ import React, {useState, useEffect} from 'react';
 import Icon from '../icons/icons'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import AdvisoryStack from '../navigators/stackAdvisoryNav'; 
-import AlertStack from '../navigators/stackAlertNav'; 
-import BeReadyStack from '../navigators/stackBeReadyNav'; 
-import AccountStack from '../navigators/stackAccNav';
+import {AdvisoryStack} from '../navigators/stackAdvisoryNav';     // Navigation for Advisory screens
+import {AlertStack} from '../navigators/stackAlertNav';       // Navigation for Alert screens
+import {BeReadyStack} from '../navigators/stackBeReadyNav';       // Navigation for BeReady Screens
+import {AccountStack} from '../navigators/stackAccNav';       // Navigation for Account screens
 
 import {init, insertIncident, fetchIncidents, deleteIncidents} from '.././utils/dbFunctions'
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
+//import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Tab = createBottomTabNavigator(); 
+const Tab = createBottomTabNavigator();     // Creates bottom tab
 
+/**
+ * Creates the bottom tab for navigation through the application.
+ * @returns The bottom tab navigator holding the main tabs: Advisory, Alerts, Be Ready, and Account.
+ */
 const BottomTabNavigator = () => { 
     const [data, setData] = useState([])
     const [refresh, setRefresh] = useState(true)
@@ -23,6 +27,9 @@ const BottomTabNavigator = () => {
     var source = ""
     var title = ""
 
+    /**
+     * Performs a GET request to retrieve data from the database and save it locally.
+     */
     const getIncidents = async () => { 
         try{ 
             const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
@@ -39,7 +46,7 @@ const BottomTabNavigator = () => {
                 setRefresh(false)
             } else { 
                 console.log(data.length)
-                // initialize the database if it is not initialized 
+                // drops the table from the local database if it is initialized 
                 deleteIncidents()
                     .then((dbResult) => { 
                         console.log(dbResult)
@@ -49,7 +56,8 @@ const BottomTabNavigator = () => {
                         console.log(err)
                         console.log("table not dropped")
                     })
-                    
+                
+                // creates table in the local database
                 init()
                     .then(() => { 
                         console.log("initialized database")
@@ -59,7 +67,8 @@ const BottomTabNavigator = () => {
                         console.log(err)
                     })
                 
-                for(let i = 0; i < data.length; i++){ 
+                // inserts data into the table in the local database
+                for(let i = 0; i < data.length; i++) { 
                     incidentId = data[i]["incidentId"]
                     description = data[i]["description"]
                     category = data[i]["category"]
@@ -90,6 +99,9 @@ const BottomTabNavigator = () => {
         }
     }
 
+    /**
+     * Refreshes and updates the local database with the most recent information.
+     */
     const testMethod = async () => {
         console.log("setInterval works :)");
         //const token = await AsyncStorage.getItem('token')

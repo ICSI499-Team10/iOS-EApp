@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {FlatList, Text, View, StyleSheet, ScrollView} from 'react-native';
+import {FlatList, Text, StyleSheet, ScrollView} from 'react-native';
 
 const fetchData = () => {
     const [data, setData] = useState([]);

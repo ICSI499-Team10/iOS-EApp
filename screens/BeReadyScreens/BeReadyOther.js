@@ -12,9 +12,15 @@ import {
 import {globalStyles} from '../../styles/globalStyles'; 
 import {fetchBeReadyOther} from '../../utils/dbFunctions'
 
+/**
+ * Fetches all Be Ready information relating to Other from local database and displays in a list.
+ * @param {*} props Navigation for Be Ready
+ * @returns Log of all Other Be Ready information.
+ */
 const BeReadyOtherScreen = props => { 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
+    
     const getBeReadyOther = async () => { 
       fetchBeReadyOther()
         .then((dbResult) => { 

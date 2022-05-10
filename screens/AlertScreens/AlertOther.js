@@ -12,9 +12,15 @@ import {
 import {globalStyles} from '../../styles/globalStyles';
 import {fetchAlertsOther} from '../../utils/dbFunctions';
 
+/**
+ * Fetches all Alert information relating to Other from local database and displays in a list.
+ * @param {*} props Navigation for Alert
+ * @returns Log of all Other Alert information.
+ */
 const AlertOtherScreen = props => { 
   const [data, setData] = useState([])
   const [isLoading, setLoading] = useState(true)
+
   const getAlertsOther = async () => { 
     fetchAlertsOther()
       .then((dbResult) => { 

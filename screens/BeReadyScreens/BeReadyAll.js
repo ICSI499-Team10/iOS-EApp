@@ -12,9 +12,15 @@ import {
 import {globalStyles} from '../../styles/globalStyles';
 import {fetchBeReady} from '../../utils/dbFunctions'
 
+/**
+ * Fetches all Be Ready information from local database and displays in a list.
+ * @param {*} props Navigation for Be Ready
+ * @returns Log of all Be Ready information.
+ */
 const BeReadyAllScreen = props => { 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
+
     const getBeReady = async () => { 
       fetchBeReady()
         .then((dbResult) => { 

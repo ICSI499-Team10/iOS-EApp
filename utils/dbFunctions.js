@@ -1,7 +1,11 @@
 import * as SQLite from 'expo-sqlite'
 
-const db = SQLite.openDatabase('eappIncidentsTable.db')
+const db = SQLite.openDatabase('eappIncidentsTable.db')     // Creates local database
 
+/**
+ * Creates main table for all information to be put into local database.
+ * @returns Promise; if resolved or rejected
+ */
 export const init = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -19,6 +23,18 @@ export const init = () => {
     return promise
 }
 
+/**
+ * Inserts all information into table saved into the local database.
+ * @param {*} incidentId The incident's ID
+ * @param {*} description The incident's description
+ * @param {*} category The incident's category (Advisory, Alert, or Be Ready)
+ * @param {*} incidentTypeId The incident's subcategory (1-6)
+ * @param {*} source The incident's source
+ * @param {*} title The title of the incident
+ * @param {*} timeOfEvent The time of the incident
+ * @param {*} severityTypeId How severe the incident is
+ * @returns Promise; if resolved or rejected
+ */
 export const insertIncident = (incidentId, description, category, incidentTypeId, source, title, timeOfEvent, severityTypeId) => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -36,6 +52,10 @@ export const insertIncident = (incidentId, description, category, incidentTypeId
     return promise
 }
 
+/**
+ * Retrieves all the information from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchIncidents = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -53,6 +73,10 @@ export const fetchIncidents = () => {
     return promise
 }
 
+/**
+ * Drops the table from the local database if it exists already.
+ * @returns Promise; if resolved or rejected
+ */
 export const deleteIncidents = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -70,6 +94,10 @@ export const deleteIncidents = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Be Ready" information from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchBeReady = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -87,6 +115,10 @@ export const fetchBeReady = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Alerts" information from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchAlerts = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -104,6 +136,10 @@ export const fetchAlerts = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Advisory" information from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchAdvisory = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -121,6 +157,10 @@ export const fetchAdvisory = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Advisory" information for "Fire" from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchAdvisoryFire = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -138,6 +178,10 @@ export const fetchAdvisoryFire = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Advisory" information for "Health" from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchAdvisoryHealth = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -155,6 +199,10 @@ export const fetchAdvisoryHealth = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Advisory" information for "Other" from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchAdvisoryOther = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -172,6 +220,10 @@ export const fetchAdvisoryOther = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Advisory" information for "Roads" from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchAdvisoryRoads = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -189,6 +241,10 @@ export const fetchAdvisoryRoads = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Advisory" information for "Weather" from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchAdvisoryWeather = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -206,6 +262,10 @@ export const fetchAdvisoryWeather = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Alerts" information for "Fire" from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchAlertsFire = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -223,6 +283,10 @@ export const fetchAlertsFire = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Alerts" information for "Health" from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchAlertsHealth = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -240,6 +304,10 @@ export const fetchAlertsHealth = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Alerts" information for "Other" from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchAlertsOther = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -257,6 +325,10 @@ export const fetchAlertsOther = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Alerts" information for "Roads" from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchAlertsRoads = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -274,6 +346,10 @@ export const fetchAlertsRoads = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Alerts" information for "Weather" from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchAlertsWeather = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -291,6 +367,10 @@ export const fetchAlertsWeather = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Be Ready" information for "Fire" from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchBeReadyFire = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -308,6 +388,10 @@ export const fetchBeReadyFire = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Be Ready" information for "Health" from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchBeReadyHealth = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -325,6 +409,10 @@ export const fetchBeReadyHealth = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Be Ready" information for "Other" from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchBeReadyOther = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -342,6 +430,10 @@ export const fetchBeReadyOther = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Be Ready" information for "Roads" from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchBeReadyRoads = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -359,6 +451,10 @@ export const fetchBeReadyRoads = () => {
     return promise
 }
 
+/**
+ * Retrieves all the "Be Ready" information for "Weather" from the local database ordered by timeOfEvent.
+ * @returns Promise; if resolved or rejected
+ */
 export const fetchBeReadyWeather = () => { 
     const promise = new Promise((resolve, reject) => { 
         db.transaction((tx) => { 
@@ -375,8 +471,3 @@ export const fetchBeReadyWeather = () => {
     })
     return promise
 }
-
-
-
-
-

@@ -1,6 +1,11 @@
 import React from 'react'; 
-import { Text, View, StyleSheet, Button} from 'react-native'; 
+import { Text, View, StyleSheet} from 'react-native'; 
 
+/**
+ * Displays About screen for Account tab.
+ * @param {*} props Navigation for Account
+ * @returns About screen.
+ */
 const AboutScreen = props => { 
     return (
         <View style={styles.screen}>

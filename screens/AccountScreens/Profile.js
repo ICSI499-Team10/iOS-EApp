@@ -2,8 +2,13 @@ import React,{useState, useEffect} from 'react';
 import { Text, View, StyleSheet, Button, TextInput} from 'react-native';
 import { globalStyles } from '../../styles/globalStyles';
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';       // Import for local storage
 
+/**
+ * Displays My Profile screen for Account tab where user can update their information.
+ * @param {*} props Navigation for Account
+ * @returns My Profile screen.
+ */
 const ProfileScreen = props => { 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -16,6 +21,7 @@ const ProfileScreen = props => {
     const [token, setToken] = useState('')
     const [userId, setUserId] = useState('')
     
+    // Stores user's token onto device
     const getToken = async () => { 
         try { 
             const asyncToken = await AsyncStorage.getItem('token')
@@ -26,6 +32,7 @@ const ProfileScreen = props => {
         }
     }
     
+    // Stores user's userID onto device
     const getUserId = async () => { 
         try { 
             const asyncUserId = await AsyncStorage.getItem('userId')
@@ -36,6 +43,7 @@ const ProfileScreen = props => {
         }
     }
 
+    // Request for updating account information
     const updateReq = {
         method: "POST",
         headers: {
@@ -58,6 +66,9 @@ const ProfileScreen = props => {
         })
     };
 
+    /**
+     * Handler for updating user information. Submits POST request and saves changes in database if successful.
+     */
     const submitHandler = async () => {
         try {
             const URI = "http://eapp-test.arcc.albany.edu/publish/UpdateAccount";
@@ -80,6 +91,7 @@ const ProfileScreen = props => {
         getToken()
         getUserId()
     },[])
+
     return (
         <View style={globalStyles.loginContainer}>
             <Text style={globalStyles.titleText2}>Update User Information</Text>
@@ -103,13 +115,5 @@ const ProfileScreen = props => {
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-  screen: { 
-    flex: 1, 
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
 
 export {ProfileScreen}

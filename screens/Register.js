@@ -1,17 +1,23 @@
 import React, {useState} from 'react'; 
-import { Text, View, StyleSheet, TextInput, Button} from 'react-native';
-import {globalStyles} from '../styles/globalStyles';
+import {Text, View, TextInput, Button} from 'react-native';
+import {globalStyles} from '../styles/globalStyles';    // Import of style sheet to be applied to screen
 
+/**
+ * Displays Register screen.
+ * @param {*} navigation Navigation path for screens related to Register
+ * @returns Return screen and respective buttons for function
+ */
 const RegisterScreen = ({navigation}) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [mac, setMAC] = useState('');
-  const [password, setPassword] = useState('');
-  const [address, setAddress] = useState('');
-  const [phone, setPhone] = useState('');
-  const [emergencyName, setEmergencyName] = useState('');
-  const [emergencyPhone, setEmergencyPhone] = useState('');
+  const [name, setName] = useState('');   // Name of user
+  const [email, setEmail] = useState('');   // Email of user
+  const [mac, setMAC] = useState('');   // MAC address of the user (not used for now, using a dummy address)
+  const [password, setPassword] = useState('');   // Password of user
+  const [address, setAddress] = useState('');   // Address of user
+  const [phone, setPhone] = useState('');   // Phone number of user
+  const [emergencyName, setEmergencyName] = useState('');   // Emergency contact for user
+  const [emergencyPhone, setEmergencyPhone] = useState('');   // Emergency contact's phone number for user
 
+  // Request for account registration
   const req = {
     method: "POST",
     headers: {
@@ -33,6 +39,9 @@ const RegisterScreen = ({navigation}) => {
     })
   };
 
+  /**
+   * Handler for creating account. Submits POST request and data is saved to database.
+   */
   const submitHandler = async () => {
     try {
       if(!name || !email || !password || !phone) {
@@ -49,6 +58,7 @@ const RegisterScreen = ({navigation}) => {
     }
   };
 
+  // Loads Register screen
   return (
     <View style={globalStyles.loginContainer}>
       <Text style={globalStyles.titleText2}>Create an Account</Text>

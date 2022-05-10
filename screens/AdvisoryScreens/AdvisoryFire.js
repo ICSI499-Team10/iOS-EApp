@@ -12,9 +12,15 @@ import {
 import {globalStyles} from '../../styles/globalStyles';
 import {fetchAdvisoryFire} from '../../utils/dbFunctions';
 
+/**
+ * Fetches all Advisory information relating to Fire from local database and displays in a list.
+ * @param {*} props Navigation for Advisory
+ * @returns Log of all Fire Advisory information.
+ */
 const AdvisoryFireScreen = props => { 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
+
     const getAdvisoryFire = async () => { 
       fetchAdvisoryFire()
         .then((dbResult) => { 
@@ -26,6 +32,7 @@ const AdvisoryFireScreen = props => {
           console.log(err)
         })
     }
+
     const onRefresh = () => { 
       setData([])
       getAdvisoryFire()
@@ -48,6 +55,7 @@ const AdvisoryFireScreen = props => {
       getAdvisoryFire()
     },[])
 
+    // Return of list of information with touchable opacity to view descriptions
     return (
       <SafeAreaView style={globalStyles.screen}>
         {isLoading ? <ActivityIndicator/> : (

@@ -12,9 +12,15 @@ import {
 import {globalStyles} from '../../styles/globalStyles';  
 import {fetchBeReadyRoads} from '../../utils/dbFunctions'
 
+/**
+ * Fetches all Be Ready information relating to Roads from local database and displays in a list.
+ * @param {*} props Navigation for Be Ready
+ * @returns Log of all Roads Be Ready information.
+ */
 const BeReadyRoadsScreen = props => { 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
+    
     const getBeReadyRoads = async () => { 
       fetchBeReadyRoads()
         .then((dbResult) => { 

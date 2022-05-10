@@ -12,9 +12,15 @@ import {
 import {globalStyles} from '../../styles/globalStyles';
 import {fetchAdvisoryRoads} from '../../utils/dbFunctions';
 
+/**
+ * Fetches all Advisory information relating to Roads from local database and displays in a list.
+ * @param {*} props Navigation for Advisory
+ * @returns Log of all Roads Advisory information.
+ */
 const AdvisoryRoadsScreen = props => { 
   const [data, setData] = useState([])
   const [isLoading, setLoading] = useState(true)
+
   const getAdvisoryRoads = async () => { 
     fetchAdvisoryRoads()
       .then((dbResult) => { 
@@ -26,6 +32,7 @@ const AdvisoryRoadsScreen = props => {
         console.log(err)
       })
   }
+
   const onRefresh = () => { 
     setData([])
     getAdvisoryRoads()
@@ -48,6 +55,7 @@ const AdvisoryRoadsScreen = props => {
     getAdvisoryRoads()
   },[])
 
+  // Return of list of information with touchable opacity to view descriptions
   return (
     <SafeAreaView style={globalStyles.screen}>
         {isLoading ? <ActivityIndicator/> : (

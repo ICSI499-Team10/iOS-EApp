@@ -12,32 +12,16 @@ import {
 import {globalStyles} from '../../styles/globalStyles';
 import {fetchAdvisory} from '../../utils/dbFunctions';
 
+/**
+ * Fetches all Advisory information from local database and displays in a list.
+ * @param {*} props Navigation for Advisory
+ * @returns Log of all Advisory information.
+ */
 const AdvisoryAllScreen = props => { 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
+
     const getAdvisory = async () => { 
-      /*try { 
-        const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
-        const response = await fetch(URI, {
-            headers: {
-                AuthToken: '4xm7HKg@SY$Q@2BeA3&9X4Ck^8EX$@mM', 
-                RecentDate: null
-            },
-        })
-        const dataJSON = await response.json() 
-        setData(dataJSON["incidents"])
-        for(let i = 0; i < data.length; i++){ 
-          if(data[i]["category"] === "Advisory"){ 
-            advisoryList.push(data[i])
-          }
-        }
-        console.log(advisoryList.length)
-        setAdvisory(advisoryList)
-      } catch (error){ 
-        console.log(error)
-      } finally { 
-        setLoading(false)
-      }*/
       fetchAdvisory()
         .then((dbResult) => { 
           console.log(dbResult["rows"]["_array"])
@@ -71,6 +55,7 @@ const AdvisoryAllScreen = props => {
       getAdvisory()
     },[])
 
+    // Return of list of information with touchable opacity to view descriptions
     return (
       <SafeAreaView style={globalStyles.screen}>
         {isLoading ? <ActivityIndicator/> : (
@@ -101,7 +86,5 @@ const AdvisoryAllScreen = props => {
       </SafeAreaView>
     )
 }
-
-
 
 export {AdvisoryAllScreen}

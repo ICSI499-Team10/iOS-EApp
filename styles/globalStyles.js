@@ -57,6 +57,7 @@ export const globalStyles = StyleSheet.create({
         justifyContent: "space-evenly",
         padding: 5
     },
+
     item: {
         borderColor: "black",
         borderWidth: 1,
@@ -70,15 +71,18 @@ export const globalStyles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10
       },
+
       scrollText:{
         fontSize: 20
       },
+
       scrollItem:{
         justifyContent:"space-between",
         flexDirection: "row",
         paddingLeft: 10,
         paddingRight: 20
       },
+
       imageButton:{
         width: 65,
         height: 65,
@@ -91,6 +95,7 @@ export const globalStyles = StyleSheet.create({
         borderColor: "#46AFFF",
         resizeMode: "contain"
       },
+      
       imageButtonText:{
         marginTop: "10%",
         fontSize: 15,
