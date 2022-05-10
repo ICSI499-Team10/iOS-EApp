@@ -6,6 +6,7 @@ const SettingsScreen = props => {
     return (
         <View style={styles.screen}>
             <Text>Settings Screen</Text>
+            <Text> *Currently WIP* </Text>
         </View>   
     )
 }
