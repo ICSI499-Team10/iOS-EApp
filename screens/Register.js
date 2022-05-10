@@ -41,8 +41,14 @@ const RegisterScreen = ({navigation}) => {
         const URI = "http://eapp-test.arcc.albany.edu/publish/CreateAccount";
         const response = await fetch(URI, req);
         const dataJSON = await response.json();
-        console.log(dataJSON);
-        navigation.navigate("Log In");
+        if(dataJSON == null) { 
+          console.log(dataJSON)
+          alert("Email address already exists!")
+          navigation.navigate("Log In");
+        } else { 
+          alert("Accounted registered successfully!")
+          navigation.navigate("Log In");
+        }
       }
     } catch(error) {
       console.log(error);
