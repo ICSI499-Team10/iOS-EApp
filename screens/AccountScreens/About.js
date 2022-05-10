@@ -5,15 +5,15 @@ import {globalStyles} from '../../styles/globalStyles';
 const AboutScreen = props => { 
     return (
         <View style={{padding: 5}}>
-            <Text style={globalStyles.titleText2}>About EApp</Text>
-            <Text style={{fontSize: 15, padding: 5, alignItems: center}}>
+            <Text style={{textAlign: "center", fontSize: 20, fontWeight: "bold"}}>About EApp</Text>
+            <Text style={{fontSize: 15, paddingLeft: 5, paddingRight: 5, textAlign: "center"}}>
               EApp is an application that disseminates emergency 
               information to a user's device. This information comes from a 
               repository run by the UbiNET Laboratory and saves the data locally 
               to the device. Thus, users will not have to be connected to Internet 
               constantly in order to view the content.
               </Text>
-              <Text style={{fontSize: 20, fountWeight: "bold", padding: 5, alignItems: center}}>
+              <Text style={{fontSize: 20, fontWeight: "bold", padding: 5, textAlign: "center"}}>
                 
                 Everyone is safer with EApp!
               </Text>
