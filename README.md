@@ -12,6 +12,7 @@ For ICSI 499 Capstone. Sponsored by Mariya Zheleva and the UbiNET Laboratory.
 - Log of information displayed with clickable rows to view descriptions
 
 # Getting Started
+
 ## Installation
 1. Run 'npm install' to install npm if you have not yet done so.
 2. Run 'npm install --global expo-cli' to install expo-cli if you have not yet done so.
