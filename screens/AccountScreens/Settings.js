@@ -1,12 +1,13 @@
 import React from 'react'; 
 import { Text, View, StyleSheet, Button} from 'react-native'; 
+import {globalStyles} from '../../styles/globalStyles';
 
 const SettingsScreen = props => { 
   console.log(props)
     return (
-        <View style={styles.screen}>
-            <Text>Settings Screen</Text>
-            <Text> *Currently WIP* </Text>
+        <View style={globalStyles.containerSub}>
+            <Text style={globalStyles.titleText}>Settings Screen</Text>
+            <Text style={globalStyles.titleText2}> *Currently WIP* </Text>
         </View>   
     )
 }
