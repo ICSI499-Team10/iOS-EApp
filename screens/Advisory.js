@@ -1,20 +1,25 @@
 import React from 'react'; 
-import {View,Text, Button,Image, TouchableOpacity} from 'react-native'; 
-import {globalStyles} from '../styles/globalStyles';
+import {View,Text, Image, TouchableOpacity} from 'react-native'; 
+import {globalStyles} from '../styles/globalStyles';    // Import of style sheet to be applied to screen
 
-
-const AdvisoryScreen = ({navigation}) => { 
-    return (
-      <View style={globalStyles.stackNavStyle}>
-        <View>
-            <TouchableOpacity onPress={() => navigation.navigate("All")}>
-            <Image
-              source={require('../icons/EAPP_Icons/bell_white.png')}
-              style={globalStyles.imageButton}
-            />
-            <Text style = {globalStyles.imageButtonText}> All </Text>
-            </TouchableOpacity>
-          
+/**
+ * Displays the Advisory screen and buttons that navigate to their subcategories.
+ * @param {*} navigation Navigation path for screens related to Advisory
+ * @returns Advisory screen and buttons to its subcategories.
+ */
+const AdvisoryScreen = ({navigation}) => {
+  return (
+    // View contains icon buttons that navigate from Advisory screen to its subcategories
+    <View style={globalStyles.stackNavStyle}>
+      <View>
+        <TouchableOpacity onPress={() => navigation.navigate("All")}>
+          <Image
+            source={require('../icons/EAPP_Icons/bell_white.png')}
+            style={globalStyles.imageButton}
+          />
+          <Text style = {globalStyles.imageButtonText}> All </Text>
+        </TouchableOpacity>
+        
       <TouchableOpacity onPress={() => navigation.navigate("Fire")}>
         <Image
           source={require('../icons/EAPP_Icons/fire_tab.png')}
@@ -30,36 +35,35 @@ const AdvisoryScreen = ({navigation}) => {
         />
         <Text style = {globalStyles.imageButtonText}> Health </Text>
       </TouchableOpacity>
-      </View>
+    </View>
 
+    <View>
       <View>
-        <View>
-      <TouchableOpacity onPress={() => navigation.navigate("Roads")}>
-        <Image
-          source={require('../icons/EAPP_Icons/road_tab.png')}
-          style={globalStyles.imageButton}
-        />
-        <Text style = {globalStyles.imageButtonText}> Roads </Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("Weather")}>
-        <Image
-          source={require('../icons/EAPP_Icons/weather_tab.png')}
-          style={globalStyles.imageButton}
-        />
-        <Text style = {globalStyles.imageButtonText}> Weather </Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("Other")}>
-        <Image
-          source={require('../icons/EAPP_Icons/form_white.png')}
-          style={globalStyles.imageButton}
-        />
-        <Text style = {globalStyles.imageButtonText}> Other </Text>
-      </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Roads")}>
+          <Image
+            source={require('../icons/EAPP_Icons/road_tab.png')}
+            style={globalStyles.imageButton}
+          />
+          <Text style = {globalStyles.imageButtonText}> Roads </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Weather")}>
+          <Image
+            source={require('../icons/EAPP_Icons/weather_tab.png')}
+            style={globalStyles.imageButton}
+          />
+          <Text style = {globalStyles.imageButtonText}> Weather </Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Other")}>
+          <Image
+            source={require('../icons/EAPP_Icons/form_white.png')}
+            style={globalStyles.imageButton}
+          />
+          <Text style = {globalStyles.imageButtonText}> Other </Text>
+        </TouchableOpacity>
       </View>
-      </View>
-      </View>
-    )
+    </View>
+  </View>
+  )
 }
-
 
 export {AdvisoryScreen}

@@ -1,7 +1,12 @@
 import React from 'react';
-import {View,Text, Button, Image, TouchableOpacity} from 'react-native'; 
-import {globalStyles} from '../styles/globalStyles';
+import {View,Text, Image, TouchableOpacity} from 'react-native'; 
+import {globalStyles} from '../styles/globalStyles';    // Import of style sheet to be applied to screen
 
+/**
+ * Displays the Alert screen and buttons that navigate to their subcategories.
+ * @param {*} navigation Navigation path for screens related to Alert
+ * @returns Alert screen and buttons to its subcategories.
+ */
 const AlertScreen = ({navigation}) => { 
   return (
     <View style={globalStyles.stackNavStyle}>

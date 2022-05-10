@@ -1,10 +1,11 @@
 import React from 'react';
-import {Text, View, StyleSheet, Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {BottomTabNavigator} from './navigators/bottomTabNav';
-import {LoginNavigator} from './navigators/loginNav';
+import {LoginNavigator} from './navigators/loginNav';   // Imports loginNav from the navigators folder
 
-
+/**
+ * Runs the application; first file ran.
+ * @returns Default open to Login Screen; part of LoginNavigator.
+ */
 export default function App() { 
   return (
     <NavigationContainer>
@@ -12,12 +13,3 @@ export default function App() {
     </NavigationContainer>
   )
 }
-
-
-const styles = StyleSheet.create({
-  screen: { 
-    flex: 1, 
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
