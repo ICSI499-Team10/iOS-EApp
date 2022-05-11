@@ -12,9 +12,15 @@ import {
 import {globalStyles} from '../../styles/globalStyles';
 import {fetchAlertsWeather} from '../../utils/dbFunctions';
 
+/**
+ * Fetches all Alert information relating to Weather from local database and displays in a list.
+ * @param {*} props Navigation for Alert
+ * @returns Log of all Weather Alert information.
+ */
 const AlertWeatherScreen = props => { 
   const [data, setData] = useState([])
   const [isLoading, setLoading] = useState(true)
+  
   const getAlertsWeather = async () => { 
     fetchAlertsWeather()
       .then((dbResult) => { 

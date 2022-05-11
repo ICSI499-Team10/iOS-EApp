@@ -12,9 +12,15 @@ import {
 import {globalStyles} from '../../styles/globalStyles';  
 import {fetchBeReadyWeather} from '../../utils/dbFunctions'
 
+/**
+ * Fetches all Be Ready information relating to Weather from local database and displays in a list.
+ * @param {*} props Navigation for Be Ready
+ * @returns Log of all Weather Be Ready information.
+ */
 const BeReadyWeatherScreen = props => { 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
+    
     const getBeReadyWeather = async () => { 
       fetchBeReadyWeather()
         .then((dbResult) => { 

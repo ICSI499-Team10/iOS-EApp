@@ -9,6 +9,10 @@ import {LogInScreen} from '../screens/LogIn';
 
 const Stack = createStackNavigator();
 
+/**
+ * Creates navigator for Account and its screens for functionality.
+ * @returns Navigator path for Account tab functionality.
+ */
 const StackAccNavigator = () => { 
     return (
         <Stack.Navigator>

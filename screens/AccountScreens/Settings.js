@@ -2,6 +2,11 @@ import React from 'react';
 import { Text, View, StyleSheet, Button} from 'react-native'; 
 import {globalStyles} from '../../styles/globalStyles';
 
+/**
+ * Displays Settings screen for Account tab.
+ * @param {*} props Navigation for Account
+ * @returns Settings screen.
+ */
 const SettingsScreen = props => { 
   console.log(props)
     return (
