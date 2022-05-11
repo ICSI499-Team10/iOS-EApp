@@ -12,9 +12,15 @@ import {
 import {globalStyles} from '../../styles/globalStyles'; 
 import {fetchBeReadyHealth} from '../../utils/dbFunctions'
 
+/**
+ * Fetches all Be Ready information relating to Health from local database and displays in a list.
+ * @param {*} props Navigation for Be Ready
+ * @returns Log of all Health Be Ready information.
+ */
 const BeReadyHealthScreen = props => { 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
+    
     const getBeReadyHealth = async () => { 
       fetchBeReadyHealth()
         .then((dbResult) => { 

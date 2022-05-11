@@ -12,9 +12,15 @@ import {
 import {globalStyles} from '../../styles/globalStyles';
 import {fetchAlertsRoads} from '../../utils/dbFunctions';
 
+/**
+ * Fetches all Alert information relating to Roads from local database and displays in a list.
+ * @param {*} props Navigation for Alert
+ * @returns Log of all Roads Alert information.
+ */
 const AlertRoadsScreen = props => { 
   const [data, setData] = useState([])
   const [isLoading, setLoading] = useState(true)
+
   const getAlertsRoads = async () => { 
     fetchAlertsRoads()
       .then((dbResult) => { 

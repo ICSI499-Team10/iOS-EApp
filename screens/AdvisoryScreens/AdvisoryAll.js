@@ -12,9 +12,15 @@ import {
 import {globalStyles} from '../../styles/globalStyles';
 import {fetchAdvisory} from '../../utils/dbFunctions';
 
+/**
+ * Fetches all Advisory information from local database and displays in a list.
+ * @param {*} props Navigation for Advisory
+ * @returns Log of all Advisory information.
+ */
 const AdvisoryAllScreen = props => { 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
+    
     const getAdvisory = async () => { 
       /*try { 
         const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"

@@ -10,6 +10,10 @@ import {AlertOtherScreen} from '../screens/AlertScreens/AlertOther';
 
 const Stack = createStackNavigator();
 
+/**
+ * Creates navigator for Alerts and its screens for functionality.
+ * @returns Navigator path for Alerts tab functionality.
+ */
 const StackAlertNavigator = () => { 
     return (
         <Stack.Navigator>

@@ -12,9 +12,15 @@ import {
 import {globalStyles} from '../../styles/globalStyles';
 import {fetchAlertsHealth} from '../../utils/dbFunctions';
 
+/**
+ * Fetches all Alert information relating to Health from local database and displays in a list.
+ * @param {*} props Navigation for Alert
+ * @returns Log of all Health Alert information.
+ */
 const AlertHealthScreen = props => { 
   const [data, setData] = useState([])
   const [isLoading, setLoading] = useState(true)
+  
   const getAlertsHealth = async () => { 
     fetchAlertsHealth()
       .then((dbResult) => { 

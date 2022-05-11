@@ -2,6 +2,11 @@ import React from 'react';
 import {View, Button} from 'react-native';
 import {globalStyles} from '../styles/globalStyles';
 
+/**
+ * Displays the Account screen and its buttons that navigate to other options.
+ * @param {*} navigation Navigation path for screens related to Account
+ * @returns Account screen and its buttons to options.
+ */
 const AccountScreen = ({navigation}) => { 
   return (
     <View style={globalStyles.accScreen}>

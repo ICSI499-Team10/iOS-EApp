@@ -10,6 +10,10 @@ import {BeReadyOtherScreen} from '../screens/BeReadyScreens/BeReadyOther';
 
 const Stack = createStackNavigator();
 
+/**
+ * Creates navigator for Be Ready and its screens for functionality.
+ * @returns Navigator path for Be Ready tab functionality.
+ */
 const StackBeReadyNavigator = () => { 
     return (
         <Stack.Navigator>
