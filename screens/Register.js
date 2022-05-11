@@ -44,14 +44,13 @@ const RegisterScreen = ({navigation}) => {
         if(dataJSON == null) { 
           console.log(dataJSON)
           alert("Email address already exists!")
-          navigation.navigate("Log In");
         } else { 
-          alert("Accounted registered successfully!")
-          navigation.navigate("Log In");
+          // do nothing
         }
       }
     } catch(error) {
-      console.log(error);
+        alert("Accounted registered successfully!")
+        navigation.navigate("Log In");
     }
   };
 

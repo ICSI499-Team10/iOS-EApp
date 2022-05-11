@@ -6,7 +6,7 @@ const AboutScreen = props => {
     return (
         <View style={{padding: 5}}>
             <Text style={{textAlign: "center", fontSize: 20, fontWeight: "bold"}}>About EApp</Text>
-            <Text style={{fontSize: 15, paddingLeft: 5, paddingRight: 5, textAlign: "center"}}>
+            <Text style={{fontSize: 15, paddingLeft: 5, paddingRight: 5, paddingTop: 10, paddingBottom: 10, textAlign: "center"}}>
               EApp is an application that disseminates emergency 
               information to a user's device. This information comes from a 
               repository run by the UbiNET Laboratory and saves the data locally 

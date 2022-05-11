@@ -5,8 +5,8 @@ import {globalStyles} from '../../styles/globalStyles';
 const ContactScreen = props => { 
     return (
         <View style={globalStyles.loginContainer}>
-            <Text style={{fontSize: 30, fontWeight: "bold", textAlign: "center"}}>Contact Us</Text>
-            <Text style={{fontSize: 20, textAlign: "center", paddingBottom: 5}}>Found an issue with the application? Send a report to our developers here:</Text>
+            <Text style={{fontSize: 30, fontWeight: "bold", textAlign: "center", paddingBottom: 10}}>Contact Us</Text>
+            <Text style={{fontSize: 20, textAlign: "center", paddingBottom: 15}}>Found an issue with the application? Send a report to our developers here:</Text>
             <View style={globalStyles.registerButtons}>
               <Button
                 title = "EApp Issue Report"
