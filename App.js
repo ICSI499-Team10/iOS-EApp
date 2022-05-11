@@ -4,7 +4,10 @@ import {NavigationContainer} from '@react-navigation/native';
 import {BottomTabNavigator} from './navigators/bottomTabNav';
 import {LoginNavigator} from './navigators/loginNav';
 
-
+/**
+ * Runs the application; first file ran.
+ * @returns Default open to Login Screen; part of LoginNavigator.
+ */
 export default function App() { 
   return (
     <NavigationContainer>

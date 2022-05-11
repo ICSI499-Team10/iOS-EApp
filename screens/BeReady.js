@@ -2,6 +2,11 @@ import React from 'react';
 import {Text,View, Button,Image, TouchableOpacity} from 'react-native';
 import {globalStyles} from '../styles/globalStyles';
 
+/**
+ * Displays the Be Ready screen and buttons that navigate to their subcategories.
+ * @param {*} navigation Navigation path for screens related to Be Ready
+ * @returns Be Ready screen and buttons to its subcategories.
+ */
 const BeReadyScreen = ({navigation}) => { 
   return (
     <View style={globalStyles.stackNavStyle}>

@@ -12,9 +12,15 @@ import {
 import {globalStyles} from '../../styles/globalStyles';
 import {fetchAlerts} from '../../utils/dbFunctions';
 
+/**
+ * Fetches all Alert information from local database and displays in a list.
+ * @param {*} props Navigation for Alert
+ * @returns Log of all Alert information.
+ */
 const AlertAllScreen = props => { 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
+
     const getAlerts = async () => { 
       fetchAlerts()
         .then((dbResult) => { 

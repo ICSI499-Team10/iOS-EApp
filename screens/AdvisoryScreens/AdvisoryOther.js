@@ -12,9 +12,15 @@ import {
 import {globalStyles} from '../../styles/globalStyles';
 import {fetchAdvisoryOther} from '../../utils/dbFunctions';
 
+/**
+ * Fetches all Advisory information relating to Other from local database and displays in a list.
+ * @param {*} props Navigation for Advisory
+ * @returns Log of all Other Advisory information.
+ */
 const AdvisoryOtherScreen = props => { 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
+
     const getAdvisoryOther = async () => { 
       fetchAdvisoryOther()
         .then((dbResult) => { 
@@ -26,6 +32,7 @@ const AdvisoryOtherScreen = props => {
           console.log(err)
         })
     }
+
     const onRefresh = () => { 
       setData([])
       getAdvisoryOther()

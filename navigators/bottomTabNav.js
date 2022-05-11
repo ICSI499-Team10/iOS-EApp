@@ -13,6 +13,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Tab = createBottomTabNavigator(); 
 
+/**
+ * Creates the bottom tab for navigation through the application.
+ * @returns The bottom tab navigator holding the main tabs: Advisory, Alerts, Be Ready, and Account.
+ */
 const BottomTabNavigator = () => { 
     const [data, setData] = useState([])
     const [refresh, setRefresh] = useState(true)
@@ -23,6 +27,9 @@ const BottomTabNavigator = () => {
     var source = ""
     var title = ""
 
+    /**
+     * Performs a GET request to retrieve data from the database and save it locally.
+     */
     const getIncidents = async () => { 
         try{ 
             const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
@@ -39,7 +46,7 @@ const BottomTabNavigator = () => {
                 setRefresh(false)
             } else { 
                 console.log(data.length)
-                // initialize the database if it is not initialized 
+                // drops the table from the local database if it is initialized 
                 deleteIncidents()
                     .then((dbResult) => { 
                         console.log(dbResult)
@@ -49,7 +56,8 @@ const BottomTabNavigator = () => {
                         console.log(err)
                         console.log("table not dropped")
                     })
-                    
+                
+                // creates table in the local database
                 init()
                     .then(() => { 
                         console.log("initialized database")
@@ -59,6 +67,7 @@ const BottomTabNavigator = () => {
                         console.log(err)
                     })
                 
+                // inserts data into the table in the local database
                 for(let i = 0; i < data.length; i++){ 
                     incidentId = data[i]["incidentId"]
                     description = data[i]["description"]
@@ -90,7 +99,10 @@ const BottomTabNavigator = () => {
         }
     }
 
-    const testMethod = async () => {
+    /**
+     * Refreshes and updates the local database with the most recent information.
+     */
+    const getRecentIncidents = async () => {
         console.log("setInterval works :)");
         //const token = await AsyncStorage.getItem('token')
         //console.log(token)
@@ -100,8 +112,8 @@ const BottomTabNavigator = () => {
         getIncidents()
         if(refresh == false) {
             setInterval(() => {
-                testMethod()
-            }, 10000)
+                getRecentIncidents()
+            }, 600000)
             // 600000 ms in 10 mins
         }
     },[refresh])

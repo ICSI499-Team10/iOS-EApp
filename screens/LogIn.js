@@ -3,11 +3,17 @@ import {Text, View, StyleSheet, TextInput, Button} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {globalStyles} from '../styles/globalStyles';
 
+/**
+ * Displays the login screen
+ * @param {*} navigation Navigation path for screens related to Login
+ * @returns Login screen and respective buttons for functions.
+ */
 const LogInScreen = ({navigation}) => { 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [mac, setMAC] = useState('');
+  //const [mac, setMAC] = useState('');
 
+  // Request for logging in
   const req = {
     method: "POST", 
     headers: {
@@ -21,6 +27,9 @@ const LogInScreen = ({navigation}) => {
     })
   };
 
+  /**
+   * Handler for logging in. Submits the POST request and verifies input of information.
+   */
   const submitHandler = async () => { 
     try { 
       const URI = "http://eapp-test.arcc.albany.edu/publish/SignIn";

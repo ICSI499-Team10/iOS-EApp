@@ -12,9 +12,15 @@ import {
 import {globalStyles} from '../../styles/globalStyles';
 import {fetchAdvisoryHealth} from '../../utils/dbFunctions';
 
+/**
+ * Fetches all Advisory information relating to Health from local database and displays in a list.
+ * @param {*} props Navigation for Advisory
+ * @returns Log of all Health Advisory information.
+ */
 const AdvisoryHealthScreen = props => { 
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
+
     const getAdvisoryHealth = async () => { 
       fetchAdvisoryHealth()
         .then((dbResult) => { 
@@ -26,6 +32,7 @@ const AdvisoryHealthScreen = props => {
           console.log(err)
         })
     }
+    
     const onRefresh = () => { 
       setData([])
       getAdvisoryHealth()

@@ -2,6 +2,11 @@ import React from 'react';
 import { Text, View, StyleSheet, Button} from 'react-native';
 import {globalStyles} from '../../styles/globalStyles';
 
+/**
+ * Displays About screen for Account tab.
+ * @param {*} props Navigation for Account
+ * @returns About screen.
+ */
 const AboutScreen = props => { 
     return (
         <View style={{padding: 5}}>

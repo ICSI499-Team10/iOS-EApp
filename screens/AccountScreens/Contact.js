@@ -2,6 +2,11 @@ import React from 'react';
 import { Text, View, StyleSheet, Button, Linking } from 'react-native';
 import {globalStyles} from '../../styles/globalStyles';
 
+/**
+ * Displays Contact Us screen for Account tab.
+ * @param {*} props Navigation for Account
+ * @returns Contact Us screen.
+ */
 const ContactScreen = props => { 
     return (
         <View style={globalStyles.loginContainer}>

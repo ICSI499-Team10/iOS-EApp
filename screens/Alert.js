@@ -2,6 +2,11 @@ import React from 'react';
 import {View,Text, Button, Image, TouchableOpacity} from 'react-native'; 
 import {globalStyles} from '../styles/globalStyles';
 
+/**
+ * Displays the Alert screen and buttons that navigate to their subcategories.
+ * @param {*} navigation Navigation path for screens related to Alert
+ * @returns Alert screen and buttons to its subcategories.
+ */
 const AlertScreen = ({navigation}) => { 
   return (
     <View style={globalStyles.stackNavStyle}>

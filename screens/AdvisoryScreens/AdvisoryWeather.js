@@ -12,9 +12,15 @@ import {
 import {globalStyles} from '../../styles/globalStyles';
 import {fetchAdvisoryWeather} from '../../utils/dbFunctions';
 
+/**
+ * Fetches all Advisory information relating to Weather from local database and displays in a list.
+ * @param {*} props Navigation for Advisory
+ * @returns Log of all Weather Advisory information.
+ */
 const AdvisoryWeatherScreen = props => { 
   const [data, setData] = useState([])
   const [isLoading, setLoading] = useState(true)
+
   const getAdvisoryWeather = async () => { 
     fetchAdvisoryWeather()
       .then((dbResult) => { 
@@ -26,6 +32,7 @@ const AdvisoryWeatherScreen = props => {
         console.log(err)
       })
   }
+
   const onRefresh = () => { 
     setData([])
     getAdvisoryWeather()

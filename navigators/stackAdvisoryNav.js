@@ -10,6 +10,10 @@ import {AdvisoryOtherScreen} from '../screens/AdvisoryScreens/AdvisoryOther';
 
 const Stack = createStackNavigator();
 
+/**
+ * Creates navigator for Advisory and its screens for functionality.
+ * @returns Navigator path for Advisory tab functionality.
+ */
 const StackAdvisoryNavigator = () => { 
     return (
         <Stack.Navigator>
