@@ -4,6 +4,8 @@ This is an Android mobile application implemented for iOS devices that helps to 
 Team 10: Shopnil Shahriar, Evan Poon, Christos Markakis, Joe Potter
 For ICSI 499 Capstone. Sponsored by Mariya Zheleva and the UbiNET Laboratory.
 
+GitHub Link: https://github.com/ICSI499-Team10/iOS-EApp
+
 # Features
 - Create/Login Account functionality
 - Tab and Stack navigators for pages to view data from GET requests
