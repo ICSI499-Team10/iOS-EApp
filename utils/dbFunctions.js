@@ -471,3 +471,20 @@ export const fetchBeReadyWeather = () => {
     })
     return promise
 }
+
+export const getDBMostRecentIncident = () => { 
+    const promise = new Promise((resolve, reject) => { 
+        db.transaction((tx) => { 
+            tx.executeSql(
+            `SELECT * FROM incidents ORDER BY timeOfEvent DESC LIMIT 1;`, 
+            [], 
+            (_,result) => {
+                resolve(result)
+            }, 
+            (_,err) => {
+                reject(err)
+            })
+        })
+    })
+    return promise
+}

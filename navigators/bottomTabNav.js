@@ -7,9 +7,9 @@ import AlertStack from '../navigators/stackAlertNav';
 import BeReadyStack from '../navigators/stackBeReadyNav'; 
 import AccountStack from '../navigators/stackAccNav';
 
-import {init, insertIncident, fetchIncidents, deleteIncidents} from '.././utils/dbFunctions'
+import moment from 'moment'
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {init, insertIncident, fetchIncidents, deleteIncidents, getDBMostRecentIncident} from '.././utils/dbFunctions'
 
 const Tab = createBottomTabNavigator(); 
 
@@ -19,7 +19,10 @@ const Tab = createBottomTabNavigator();
  */
 const BottomTabNavigator = () => { 
     const [data, setData] = useState([])
+    const [newData, setNewData] = useState([])
     const [refresh, setRefresh] = useState(true)
+    const [recentIncidentTime, setRecentIncidentTime] = useState("")
+    const [recentIncident, setRecentIncident] = useState([])
     var incidentId = 0
     var description = ""
     var category = ""
@@ -86,13 +89,13 @@ const BottomTabNavigator = () => {
                         })
                 }
 
-                fetchIncidents()
+                /*fetchIncidents()
                     .then((dbResult) => { 
                         //console.log(dbResult)
                     })
                     .catch(err => { 
                         console.log(err)
-                    })
+                    })*/
             }
         } catch (error) { 
             console.log(error)
@@ -101,19 +104,54 @@ const BottomTabNavigator = () => {
 
     /**
      * Refreshes and updates the local database with the most recent information.
+     * Resolved - fetches the recent data from the SQLite database, formats the date, and fetches the latest data using recentDate in the API
+     * Requires work - setting new data using react useState, error checking if there is no data or new data, inserting it into the database if data is new
+     * NOTE - for other pages, setInterval is required to fetch the latest data added to the SQLite server
      */
-    const getRecentIncidents = async () => {
-        console.log("setInterval works :)");
-        //const token = await AsyncStorage.getItem('token')
-        //console.log(token)
+    const getRecentIncident = async () => {
+        getDBMostRecentIncident()
+            .then((dbResult) => { 
+                setRecentIncident(dbResult["rows"]["_array"])
+                //const formatDate = moment(dbResult["rows"]["_array"][0]["timeOfEvent"]).format("ddd MMM DD HH:mm:ss [EDT] yyyy")
+                const formatDate = "Wed Apr 27 12:32:00 EDT 2022"
+                console.log(formatDate)
+                fetchRecentIncidentFromAPI(formatDate)
+                console.log(newData)
+            })
+            .catch(err => { 
+                console.log("getRecentIncident error")
+                console.log(err)
+            })
+    }
+
+    /**
+     * Helper function to fetch the recent data from the API using the recentDate 
+     * NOTE - setNewData does not work - requires further debugging
+     */
+
+    const fetchRecentIncidentFromAPI = async (formatDate) => { 
+        try { 
+            const URI = "http://eapp-test.arcc.albany.edu/publish/Incident"
+            const response = await fetch(URI, {
+                headers: {
+                    AuthToken: '4xm7HKg@SY$Q@2BeA3&9X4Ck^8EX$@mM', 
+                    RecentDate: formatDate
+                },
+            })
+            const dataJSON = await response.json() 
+            setNewData(dataJSON["incidents"])
+        } catch(error) { 
+            console.log("fetchRecentIncidentError")
+            console.log(error)
+        }
     }
 
     useEffect(() => { 
         getIncidents()
         if(refresh == false) {
             setInterval(() => {
-                getRecentIncidents()
-            }, 600000)
+                getRecentIncident()
+            }, 60000)
             // 600000 ms in 10 mins
         }
     },[refresh])
